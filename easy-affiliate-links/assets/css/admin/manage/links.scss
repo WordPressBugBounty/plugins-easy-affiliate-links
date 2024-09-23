@@ -1,0 +1,88 @@
+.eafl-admin-manage-links-clicks-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .eafl-admin-icon {
+        margin-right: 10px;
+    }
+
+    .eafl-admin-manage-links-clicks-text {
+        font-size: 10px;
+        color: #666;
+    }
+}
+
+.eafl-admin-table-url-container {
+    display: flex;
+    align-items: center;
+
+    .eafl-admin-table-url-container-copy {
+        margin-right: 5px;
+    }
+
+    a {
+        font-size: 12px;
+        line-height: 12px;
+
+        overflow-wrap: break-word;
+        word-break: break-all;
+        white-space: normal
+    }
+}
+
+.eafl-admin-table-html-container {
+    pre {
+        white-space: normal;
+        font-size: 12px;
+        margin: 0;
+    }
+}
+
+.eafl-admin-table-condition-container {
+    display: flex;
+
+    strong {
+        margin-right: 10px;
+    }
+}
+
+.eafl-admin-table-replacement-container,
+.eafl-admin-table-status-container {
+    display: flex;
+    align-items: center;
+    
+    .eafl-admin-icon {
+        margin-right: 5px;
+    }
+}
+
+.eafl-admin-table-agent-container {
+    font-size: 12px;
+    line-height: 12px;
+
+    overflow-wrap: break-word;
+    word-break: break-all;
+    white-space: normal
+}
+
+.eafl-manage-image-preview {
+    display: flex;
+
+    img {
+        width: 80px;
+        height: auto;
+        cursor: pointer;
+        margin-right: 2px;
+    }
+}
+
+.eafl-admin-manage-relations-post-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .eafl-admin-icon {
+        margin-right: 5px;
+    }
+}

@@ -1,0 +1,139 @@
+.eafl-admin-modal-create,
+.eafl-admin-modal-edit {
+    max-width: 800px;
+
+    .eafl-admin-modal-link-fields-group {
+        margin-bottom: 40px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .eafl-admin-modal-link-fields-group-header {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: #999;
+        border-bottom: 1px solid #999;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .eafl-admin-modal-link-field-label {
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        font-size: 14px;
+    }
+
+    .eafl-admin-modal-link-field {
+        margin-bottom: 30px;
+
+        input[type=text],
+        textarea {
+            width: 100%;
+            border-radius: 4px;
+            border-color: hsl(0,0%,80%);
+            padding: 10px;
+        }
+
+        input[type=checkbox] {
+            width: 16px;
+            height: 16px;
+            border-color: hsl(0,0%,80%);
+
+            &:checked::before {
+                width: 1.3em;
+                height: 1.3em;
+            }
+        }
+
+        label {
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        .eafl-admin-modal-link-field-radio-option {
+            margin-bottom: 5px;
+
+            input {
+                width: 16px;
+                height: 16px;
+                margin-top: 1px;
+                border-color: hsl(0,0%,80%);
+    
+                &:checked:before {
+                    margin: 3px;
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+        }
+
+        .eafl-admin-modal-link-field-slug-preview {
+            font-size: 12px;
+            color: #999;
+            margin-top: 2px;
+        }
+    }
+}
+
+@media screen and (min-width: 782px) {
+    .eafl-admin-modal-create,
+    .eafl-admin-modal-edit {
+        .eafl-admin-modal-link-fields-group-header {
+            text-align: left;
+        }
+
+        .eafl-admin-modal-link-fields-group {
+            margin-bottom: 20px;
+        }
+
+        .eafl-admin-modal-link-field-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .eafl-admin-modal-link-field-label {
+            flex-shrink: 0;
+            width: 200px;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .eafl-admin-modal-link-field-container-radio {
+            .eafl-admin-modal-link-field-label {
+                margin-top: 2px;
+            }
+        }
+
+        .eafl-admin-modal-link-field {
+            flex: auto;
+            margin-bottom: 15px;
+
+            label {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+
+        .eafl-admin-modal-link-fields-group-properties {
+            .eafl-admin-modal-link-fields {
+                display: flex;
+
+                .eafl-admin-modal-link-field-container {
+                    flex-direction: column;
+
+                    .eafl-admin-modal-link-field-label {
+                        width: auto;
+                        text-align: left;
+                        padding-right: 0;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

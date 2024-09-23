@@ -1,0 +1,66 @@
+.eafl-admin-modal-insert {
+    height: 90%;
+
+    .eafl-admin-modal-header {
+        h2 {
+            display: flex;
+            align-items: center;
+
+            button {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .eafl-admin-modal-content {
+        padding: 0;
+        position: relative;
+        height: 80%;
+
+        .eafl-admin-modal-table {
+            margin: -1px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+
+            .eafl-admin-manage-text-filter {
+                width: 100%;
+            }
+
+            .eafl-admin-table-insert-container {
+                display: flex;
+                width: 100%;
+
+                select {
+                    flex: 1;
+                    width: 100%;
+                    font-size: 12px;
+                }
+
+                .eafl-admin-table-insert-button {
+                    flex: 0;
+                    line-height: 1em;
+                    padding: 0 7px;
+                    
+                    .eafl-admin-icon {
+                        opacity: 1;
+                        margin-top: 0;
+    
+                        svg {
+                            margin-top: 2px;
+
+                            path, line, polyline {
+                                stroke: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

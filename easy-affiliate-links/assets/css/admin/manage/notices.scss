@@ -1,0 +1,28 @@
+.eafl-admin-manage-notices {
+    .eafl-admin-notice {
+        margin-bottom: 15px;
+
+        background-color: white;
+        border: 1px solid #0073aa;
+        border-radius: 4px;
+        padding: 10px;
+
+        display: flex;
+        align-items: center;
+
+        .eafl-admin-notice-content {
+            flex: 1;
+
+            .eafl-admin-notice-title {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+        }
+
+        .eafl-admin-notice-dismiss {
+            .eafl-admin-icon {
+                opacity: 1;
+            }
+        }
+    }
+}

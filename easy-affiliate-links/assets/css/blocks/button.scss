@@ -1,0 +1,9 @@
+.eafl-link-button {
+    path {
+        fill: #2980b9;
+    }
+
+    &.is-active path {
+        fill: #d8efff;
+    }
+}

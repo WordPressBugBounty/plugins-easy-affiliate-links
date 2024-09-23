@@ -1,0 +1,16 @@
+.editor-styles-wrapper {
+    a.eafl-link {
+        color: #2980b9;
+        border-bottom: 1px dashed #2980b9;
+
+        text-decoration: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+
+        &:hover {
+            cursor: pointer;
+            color: #2980b9;
+            border-bottom-style: solid;
+        }
+    }
+}

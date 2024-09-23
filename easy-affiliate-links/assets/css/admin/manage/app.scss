@@ -1,0 +1,106 @@
+.toplevel_page_easyaffiliatelinks {
+    #update-nag,
+    .update-nag,
+    .updated,
+    .error,
+    .is-dismissible {
+        display: none;
+    }
+}
+
+#eafl-admin-manage-content {
+    .eafl-admin-manage-header {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .eafl-admin-manage-header-buttons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .button:not(.button-primary) {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .eafl-admin-manage-page {
+        .eafl-admin-manage-table-container {
+            .eafl-admin-manage-table {
+                height: calc(100vh - 50px);
+
+                .eafl-admin-manage-actions {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+
+                .eafl-admin-manage-text-filter {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .eafl-admin-manage-requirement {
+        margin: 0 auto;
+        text-align: center;
+        
+        div {
+            font-weight: bold;
+        }
+    }
+}
+
+@media screen and (min-width: 782px) {
+    #eafl-admin-manage-content {
+        .eafl-admin-manage-header {
+            flex-wrap: nowrap;
+            .eafl-admin-manage-header-buttons {
+                margin-bottom: 0;
+            }
+        }        
+    }
+}
+
+@media screen and (min-height: 768px) {
+    #eafl-admin-manage {
+        height: calc(100vh - 65px);
+        display: flex;
+        flex-direction: column;
+
+        #eafl-admin-manage-content {
+            flex: 1;
+
+            .eafl-admin-manage-page {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .eafl-admin-manage-table-container {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+
+                    .eafl-admin-manage-table-inner {
+                        flex: 1;
+                        position: relative;
+
+                        .eafl-admin-manage-table {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
