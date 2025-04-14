@@ -3,8 +3,8 @@ Contributors: BrechtVds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG7KZMGFU325Y
 Tags: affiliate, links, cloaking, shortlink
 Requires at least: 3.5
-Tested up to: 6.7
-Stable tag: 3.7.4
+Tested up to: 6.8
+Stable tag: 3.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,10 @@ We recommend using the free [Google Analytics by Yoast](https://wordpress.org/pl
 5. Powerful overview page to manage, analyze and bulk edit your links
 
 == Changelog ==
+= 3.7.5 =
+* Improvement: WordPress 6.8 compatibility
+* Fix: Loading translations too early
+
 = 3.7.4 =
 * Fix: Prevent misuse of tools by users that don't have access to that page
 
@@ -287,6 +291,9 @@ We recommend using the free [Google Analytics by Yoast](https://wordpress.org/pl
 * Very first version of this plugin
 
 == Upgrade notice ==
+= 3.7.5 =
+Update to esnure WordPress 6.8 compatibility
+
 = 3.7.4 =
 Update recommended to fix a potential security risk
 

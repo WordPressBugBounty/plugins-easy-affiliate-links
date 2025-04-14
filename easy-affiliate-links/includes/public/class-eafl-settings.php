@@ -21,26 +21,30 @@ class EAFL_Settings {
 	private static $bvs;
 
 	/**
-	 * Register actions and filters.
+	 * Get the settings instance.
 	 *
 	 * @since    3.0.0
 	 */
-	public static function init() {
-		require_once EAFL_DIR . 'templates/settings/settings.php';
-		require_once EAFL_DIR . 'vendor/bv-settings/bv-settings.php';
+	public static function get_instance() {
+		if ( is_null( self::$bvs ) ) {
+			require_once EAFL_DIR . 'templates/settings/settings.php';
+			require_once EAFL_DIR . 'vendor/bv-settings/bv-settings.php';
 
-		self::$bvs = new BV_Settings(
-			array(
-				'uid'           	=> 'eafl',
-				'menu_parent'   	=> 'easyaffiliatelinks',
-				'menu_title'    	=> __( 'Settings', 'easy-affiliate-links' ),
-				'menu_priority' 	=> 20,
-				'settings'      	=> $settings_structure,
-				'required_addons' 	=> array(),
-			)
-		);
+			self::$bvs = new BV_Settings(
+				array(
+					'uid'           	=> 'eafl',
+					'menu_parent'   	=> 'easyaffiliatelinks',
+					'menu_title'    	=> __( 'Settings', 'easy-affiliate-links' ),
+					'menu_priority' 	=> 20,
+					'settings'      	=> $settings_structure,
+					'required_addons' 	=> array(),
+				)
+			);
 
-		add_filter( 'eafl_settings_required_addons', array( __CLASS__, 'required_addons' ) );
+			add_filter( 'eafl_settings_required_addons', array( __CLASS__, 'required_addons' ) );
+		}
+
+		return self::$bvs;
 	}
 
 	/**
@@ -66,7 +70,7 @@ class EAFL_Settings {
 	 * @param    mixed $setting Setting to get the value for.
 	 */
 	public static function get( $setting ) {
-		return self::$bvs->get( $setting );
+		return self::get_instance()->get( $setting );
 	}
 
 	/**
@@ -76,7 +80,7 @@ class EAFL_Settings {
 	 * @param    mixed $setting Setting to get the default for.
 	 */
 	public static function get_default( $setting ) {
-		return self::$bvs->get_default( $setting );
+		return self::get_instance()->get_default( $setting );
 	}
 
 	/**
@@ -86,8 +90,6 @@ class EAFL_Settings {
 	 * @param    array $settings_to_update Settings to update.
 	 */
 	public static function update_settings( $settings_to_update ) {
-		return self::$bvs->update_settings( $settings_to_update );
+		return self::get_instance()->update_settings( $settings_to_update );
 	}
 }
-
-EAFL_Settings::init();
