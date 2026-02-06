@@ -44,9 +44,14 @@ class EAFL_Link_Sanitizer {
 		if ( isset( $link['status_ignore'] ) ) 	{ $sanitized_link['status_ignore'] = $link['status_ignore'] ? true : false; }
 
 		// Limited options fields.
-		$options = array( 'text', 'html', 'image' );
+		$options = array( 'text', 'html', 'image', 'amazon' );
 		if ( isset( $link['type'] ) && in_array( $link['type'], $options, true ) ) {
 			$sanitized_link['type'] = $link['type'];
+		}
+
+		$options = array( 'yes', 'no' );
+		if ( isset( $link['active'] ) && in_array( $link['active'], $options, true ) ) {
+			$sanitized_link['active'] = $link['active'];
 		}
 
 		$options = array( 'default', 'yes', 'no' );

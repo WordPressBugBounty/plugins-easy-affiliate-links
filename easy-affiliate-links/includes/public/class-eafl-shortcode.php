@@ -136,17 +136,21 @@ class EAFL_Shortcode {
 			$link = EAFL_Link_Manager::get_link( $id );
 			$link = apply_filters( 'eafl_shortcode_link', $link, $id );
 
-			if ( $link ) {
+			// Make sure link exists and is not trashed.
+			if ( $link && 'trash' !== $link->post_status() ) {
 				$classes = array(
 					'eafl-link',
 					'eafl-link-' . $link->type(),
 				);
 
 				if ( 'html' === $link->type() ) {
-					$html = trim( $link->html() );
+					if ( 'no' !== $link->active() ) {
+						$html = trim( $link->html() );
 
-					if ( $html ) {
-						$output = '<span data-eafl-id="' . $link->ID() . '" data-eafl-parsed="1" class="' . esc_attr( implode( ' ', $classes ) ) . '" style="display: inline-block;">' . $html . '</span>';
+						if ( $html ) {
+							$output = '<span data-eafl-id="' . $link->ID() . '" data-eafl-parsed="1" class="' . esc_attr( implode( ' ', $classes ) ) . '" style="display: inline-block;">' . $html . '</span>';
+						}
+
 						$output = apply_filters( 'eafl_link_shortcode', $output, $link, $html );
 					}
 				} else {
@@ -196,8 +200,8 @@ class EAFL_Shortcode {
 						$text = $content;
 					}
 
-					// If there isn't actually a destination, just return the text.
-					if ( '' === trim( $link->url() ) ) {
+					// If link is inactive or there isn't actually a destination, just return the text.
+					if ( 'no' === $link->active() || '' === trim( $link->url() ) ) {
 						$output = $text;
 					} else {
 						$output = '<a href="' . esc_attr( $url ) . '" data-eafl-id="' . $link->ID() . '" data-eafl-parsed="1" class="' . esc_attr( implode( ' ', $classes ) ) . '" target="' . esc_attr( $link->target() ) . '"' . $rel . '>' . $text . '</a>';
@@ -205,6 +209,11 @@ class EAFL_Shortcode {
 
 					$output = apply_filters( 'eafl_link_shortcode', $output, $link, $text );
 				}
+			}
+
+			// Fallback to text if there it no output.
+			if ( ! $output ) {
+				$output = $content;
 			}
 		}
 

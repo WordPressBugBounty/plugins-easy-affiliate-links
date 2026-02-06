@@ -22379,6 +22379,8 @@ var OurTooltip = function OurTooltip(props) {
 /* harmony default export */ const Tooltip = (OurTooltip);
 ;// CONCATENATED MODULE: ./easy-affiliate-links/assets/icons/close.svg
 /* harmony default export */ const icons_close = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48ZyBjbGFzcz0ibmMtaWNvbi13cmFwcGVyIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9IiMxMTExMTEiIHN0cm9rZT0iIzExMTExMSI+PGxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTExMTExIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjEzLjUiIHkxPSIyLjUiIHgyPSIyLjUiIHkyPSIxMy41IiBkYXRhLWNhcD0iYnV0dCI+PC9saW5lPiA8bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiMxMTExMTEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iMi41IiB5MT0iMi41IiB4Mj0iMTMuNSIgeTI9IjEzLjUiIGRhdGEtY2FwPSJidXR0Ij48L2xpbmU+IDwvZz48L3N2Zz4=");
+;// CONCATENATED MODULE: ./easy-affiliate-links/assets/icons/clone.svg
+/* harmony default export */ const clone = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48ZyBjbGFzcz0ibmMtaWNvbi13cmFwcGVyIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9IiMxMTExMTEiIHN0cm9rZT0iIzExMTExMSI+PHJlY3QgeD0iMC41IiB5PSIwLjUiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTExMTExIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGRhdGEtY2FwPSJidXR0Ii8+IDxwb2x5bGluZSBwb2ludHM9IjEzLjUgNC41IDE1LjUgNC41IDE1LjUgMTUuNSA0LjUgMTUuNSA0LjUgMTMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkYXRhLWNhcD0iYnV0dCIgZGF0YS1jb2xvcj0iY29sb3ItMiIvPjwvZz48L3N2Zz4=");
 ;// CONCATENATED MODULE: ./easy-affiliate-links/assets/icons/code.svg
 /* harmony default export */ const code = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48ZyBjbGFzcz0ibmMtaWNvbi13cmFwcGVyIiBmaWxsPSIjMTExMTExIj48bGluZSB4MT0iMTAuNSIgeTE9IjEuNSIgeDI9IjUuNSIgeTI9IjE0LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzExMTExMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkYXRhLWNhcD0iYnV0dCIgZGF0YS1jb2xvcj0iY29sb3ItMiI+PC9saW5lPiA8cG9seWxpbmUgcG9pbnRzPSIzLjUgNC41IDAuNSA3LjUgMy41IDEwLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzExMTExMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkYXRhLWNhcD0iYnV0dCI+PC9wb2x5bGluZT4gPHBvbHlsaW5lIHBvaW50cz0iMTIuNSA0LjUgMTUuNSA3LjUgMTIuNSAxMC41IiBmaWxsPSJub25lIiBzdHJva2U9IiMxMTExMTEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZGF0YS1jYXA9ImJ1dHQiPjwvcG9seWxpbmU+PC9nPjwvc3ZnPg==");
 ;// CONCATENATED MODULE: ./easy-affiliate-links/assets/icons/delete.svg
@@ -22415,8 +22417,10 @@ var OurTooltip = function OurTooltip(props) {
 
 
 
+
 var icons = {
   close: icons_close,
+  clone: clone,
   code: code,
   "delete": icons_delete,
   edit: edit,
@@ -22594,7 +22598,7 @@ function utils_objectWithoutProperties(obj, keys) { var target = {}; for (var i 
   orderBy: orderBy,
   range: range,
   remove: remove,
-  clone: clone,
+  clone: utils_clone,
   getFirstDefined: getFirstDefined,
   sum: sum,
   makeTemplateComponent: makeTemplateComponent,
@@ -22684,7 +22688,7 @@ function remove(a, b) {
   });
 }
 
-function clone(a) {
+function utils_clone(a) {
   try {
     return JSON.parse(JSON.stringify(a, function (key, value) {
       if (typeof value === 'function') {
@@ -26440,7 +26444,7 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'actions',
       headerClassName: 'eafl-admin-table-help-text',
       sortable: false,
-      width: 70,
+      width: 100,
       Filter: function Filter() {
         return /*#__PURE__*/react.createElement("div", null, __eafl('Filter:'));
       },
@@ -26453,6 +26457,21 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
           onClick: function onClick() {
             EAFL_Modal.open('edit', {
               link: row.original,
+              saveCallback: function saveCallback() {
+                return links.refreshData();
+              }
+            });
+          }
+        }), /*#__PURE__*/react.createElement(shared_Icon, {
+          type: "clone",
+          title: __eafl('Clone Link'),
+          onClick: function onClick() {
+            // Create a copy of the link data without the ID
+            var clonedLink = Columns_objectSpread({}, row.original);
+
+            delete clonedLink.id;
+            EAFL_Modal.open('create', {
+              clone: clonedLink,
               saveCallback: function saveCallback() {
                 return links.refreshData();
               }
@@ -26479,9 +26498,9 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
         return /*#__PURE__*/react.createElement(TextFilter, props);
       }
     }, {
-      Header: __eafl('Type'),
-      id: 'type',
-      accessor: 'type',
+      Header: __eafl('Active'),
+      id: 'active',
+      accessor: 'active',
       width: 100,
       Filter: function Filter(_ref) {
         var filter = _ref.filter,
@@ -26489,6 +26508,43 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
             return _onChange(event.target.value);
+          },
+          style: {
+            width: '100%',
+            fontSize: '1em'
+          },
+          value: filter ? filter.value : 'all'
+        }, /*#__PURE__*/react.createElement("option", {
+          value: "all"
+        }, __eafl('Any Status')), eafl_admin_manage_modal.options.active.map(function (option, index) {
+          return /*#__PURE__*/react.createElement("option", {
+            value: option.value,
+            key: index
+          }, option.label);
+        }));
+      },
+      Cell: function Cell(row) {
+        var option = eafl_admin_manage_modal.options.active.find(function (option) {
+          return option.value === row.value;
+        });
+        var isInactive = 'no' === row.value;
+        return /*#__PURE__*/react.createElement("div", {
+          style: {
+            color: isInactive ? 'darkred' : 'inherit'
+          }
+        }, option && option.label);
+      }
+    }, {
+      Header: __eafl('Type'),
+      id: 'type',
+      accessor: 'type',
+      width: 120,
+      Filter: function Filter(_ref2) {
+        var filter = _ref2.filter,
+            _onChange2 = _ref2.onChange;
+        return /*#__PURE__*/react.createElement("select", {
+          onChange: function onChange(event) {
+            return _onChange2(event.target.value);
           },
           style: {
             width: '100%',
@@ -26523,12 +26579,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'categories',
       accessor: 'categories',
       sortable: false,
-      Filter: function Filter(_ref2) {
-        var filter = _ref2.filter,
-            _onChange2 = _ref2.onChange;
+      Filter: function Filter(_ref3) {
+        var filter = _ref3.filter,
+            _onChange3 = _ref3.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange2(event.target.value);
+            return _onChange3(event.target.value);
           },
           style: {
             width: '100%',
@@ -26579,19 +26635,29 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
         return /*#__PURE__*/react.createElement(TextFilter, props);
       },
       Cell: function Cell(row) {
-        return he_default().decode(row.value);
+        if (!row.value || row.value.trim() === '') {
+          return /*#__PURE__*/react.createElement("div", null);
+        }
+
+        var decodedValue = he_default().decode(row.value);
+        var formattedValue = decodedValue.replace(/\n/g, '<br>');
+        return /*#__PURE__*/react.createElement("div", {
+          dangerouslySetInnerHTML: {
+            __html: formattedValue
+          }
+        });
       }
     }, {
       Header: __eafl('Replacement'),
       id: 'replacement',
       accessor: 'replacement',
       width: 200,
-      Filter: function Filter(_ref3) {
-        var filter = _ref3.filter,
-            _onChange3 = _ref3.onChange;
+      Filter: function Filter(_ref4) {
+        var filter = _ref4.filter,
+            _onChange4 = _ref4.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange3(event.target.value);
+            return _onChange4(event.target.value);
           },
           style: {
             width: '100%',
@@ -26691,12 +26757,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'cloak',
       accessor: 'cloak',
       width: 250,
-      Filter: function Filter(_ref4) {
-        var filter = _ref4.filter,
-            _onChange4 = _ref4.onChange;
+      Filter: function Filter(_ref5) {
+        var filter = _ref5.filter,
+            _onChange5 = _ref5.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange4(event.target.value);
+            return _onChange5(event.target.value);
           },
           style: {
             width: '100%',
@@ -26727,12 +26793,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'target',
       accessor: 'target',
       width: 250,
-      Filter: function Filter(_ref5) {
-        var filter = _ref5.filter,
-            _onChange5 = _ref5.onChange;
+      Filter: function Filter(_ref6) {
+        var filter = _ref6.filter,
+            _onChange6 = _ref6.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange5(event.target.value);
+            return _onChange6(event.target.value);
           },
           style: {
             width: '100%',
@@ -26763,12 +26829,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'redirect_type',
       accessor: 'redirect_type',
       width: 250,
-      Filter: function Filter(_ref6) {
-        var filter = _ref6.filter,
-            _onChange6 = _ref6.onChange;
+      Filter: function Filter(_ref7) {
+        var filter = _ref7.filter,
+            _onChange7 = _ref7.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange6(event.target.value);
+            return _onChange7(event.target.value);
           },
           style: {
             width: '100%',
@@ -26799,12 +26865,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'nofollow',
       accessor: 'nofollow',
       width: 250,
-      Filter: function Filter(_ref7) {
-        var filter = _ref7.filter,
-            _onChange7 = _ref7.onChange;
+      Filter: function Filter(_ref8) {
+        var filter = _ref8.filter,
+            _onChange8 = _ref8.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange7(event.target.value);
+            return _onChange8(event.target.value);
           },
           style: {
             width: '100%',
@@ -26835,12 +26901,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'sponsored',
       accessor: 'sponsored',
       width: 120,
-      Filter: function Filter(_ref8) {
-        var filter = _ref8.filter,
-            _onChange8 = _ref8.onChange;
+      Filter: function Filter(_ref9) {
+        var filter = _ref9.filter,
+            _onChange9 = _ref9.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange8(event.target.value);
+            return _onChange9(event.target.value);
           },
           style: {
             width: '100%',
@@ -26867,12 +26933,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'ugc',
       accessor: 'ugc',
       width: 100,
-      Filter: function Filter(_ref9) {
-        var filter = _ref9.filter,
-            _onChange9 = _ref9.onChange;
+      Filter: function Filter(_ref10) {
+        var filter = _ref10.filter,
+            _onChange10 = _ref10.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange9(event.target.value);
+            return _onChange10(event.target.value);
           },
           style: {
             width: '100%',
@@ -26970,6 +27036,40 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
         }, /*#__PURE__*/react.createElement("pre", null, row.value));
       }
     }, {
+      Header: __eafl('Amazon Product'),
+      id: 'amazon_product',
+      accessor: 'amazon_name',
+      width: 350,
+      Filter: function Filter(props) {
+        return /*#__PURE__*/react.createElement(TextFilter, props);
+      },
+      Cell: function Cell(row) {
+        if ('amazon' !== row.original.type) {
+          return null;
+        }
+
+        if (!row.original.amazon_asin) {
+          return null;
+        }
+
+        return /*#__PURE__*/react.createElement("div", {
+          className: "eafl-admin-table-amazon-product"
+        }, row.original.amazon_image && /*#__PURE__*/react.createElement("div", {
+          className: "eafl-admin-table-amazon-product-image"
+        }, /*#__PURE__*/react.createElement("img", {
+          src: row.original.amazon_image,
+          alt: row.original.amazon_name
+        })), /*#__PURE__*/react.createElement("div", {
+          className: "eafl-admin-table-amazon-product-details"
+        }, /*#__PURE__*/react.createElement("div", {
+          className: "eafl-admin-table-amazon-product-name"
+        }, he_default().decode(row.original.amazon_name || '')), row.original.amazon_price && /*#__PURE__*/react.createElement("div", {
+          className: "eafl-admin-table-amazon-product-price"
+        }, row.original.amazon_price), /*#__PURE__*/react.createElement("div", {
+          className: "eafl-admin-table-amazon-product-asin"
+        }, "ASIN: ", row.original.amazon_asin)));
+      }
+    }, {
       Header: __eafl('Conditional'),
       id: 'conditional',
       accessor: 'conditional',
@@ -27003,12 +27103,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'status',
       accessor: 'status',
       width: 200,
-      Filter: function Filter(_ref10) {
-        var filter = _ref10.filter,
-            _onChange10 = _ref10.onChange;
+      Filter: function Filter(_ref11) {
+        var filter = _ref11.filter,
+            _onChange11 = _ref11.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange10(event.target.value);
+            return _onChange11(event.target.value);
           },
           style: {
             width: '100%',
@@ -27084,12 +27184,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       accessor: 'status_ignore',
       width: 200,
       sortable: false,
-      Filter: function Filter(_ref11) {
-        var filter = _ref11.filter,
-            _onChange11 = _ref11.onChange;
+      Filter: function Filter(_ref12) {
+        var filter = _ref12.filter,
+            _onChange12 = _ref12.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange11(event.target.value);
+            return _onChange12(event.target.value);
           },
           style: {
             width: '100%',
@@ -27158,12 +27258,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
         id: 'wpupg_custom_image_id',
         accessor: 'wpupg_custom_image_id',
         width: 110,
-        Filter: function Filter(_ref12) {
-          var filter = _ref12.filter,
-              _onChange12 = _ref12.onChange;
+        Filter: function Filter(_ref13) {
+          var filter = _ref13.filter,
+              _onChange13 = _ref13.onChange;
           return /*#__PURE__*/react.createElement("select", {
             onChange: function onChange(event) {
-              return _onChange12(event.target.value);
+              return _onChange13(event.target.value);
             },
             style: {
               width: '100%',
@@ -34526,6 +34626,10 @@ var ActionsLink = function ActionsLink(props) {
     label: __eafl('Remove Categories'),
     "default": []
   }, {
+    value: 'change-active',
+    label: __eafl('Change Active Status'),
+    "default": 'yes'
+  }, {
     value: 'change-cloaking',
     label: __eafl('Change Cloaking'),
     "default": 'default'
@@ -34608,6 +34712,17 @@ var ActionsLink = function ActionsLink(props) {
     onChange: function onChange(categories) {
       var newAction = ActionsLinks_objectSpread(ActionsLinks_objectSpread({}, props.action), {}, {
         options: categories
+      });
+
+      props.onActionChange(newAction);
+    }
+  }), 'change-active' === selectedAction && /*#__PURE__*/react.createElement(field_FieldRadio, {
+    id: "active",
+    options: eafl_admin_manage_modal.options.active,
+    value: props.action.options,
+    onChange: function onChange(value) {
+      var newAction = ActionsLinks_objectSpread(ActionsLinks_objectSpread({}, props.action), {}, {
+        options: value
       });
 
       props.onActionChange(newAction);
@@ -34877,16 +34992,101 @@ var BulkEdit = /*#__PURE__*/function (_Component) {
 
 
 ;// CONCATENATED MODULE: ./easy-affiliate-links/assets/js/admin-modal/insert/Columns.js
+function insert_Columns_typeof(obj) { "@babel/helpers - typeof"; return insert_Columns_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, insert_Columns_typeof(obj); }
+
+function Columns_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function Columns_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function Columns_createClass(Constructor, protoProps, staticProps) { if (protoProps) Columns_defineProperties(Constructor.prototype, protoProps); if (staticProps) Columns_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function Columns_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) Columns_setPrototypeOf(subClass, superClass); }
+
+function Columns_setPrototypeOf(o, p) { Columns_setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return Columns_setPrototypeOf(o, p); }
+
+function Columns_createSuper(Derived) { var hasNativeReflectConstruct = Columns_isNativeReflectConstruct(); return function _createSuperInternal() { var Super = Columns_getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = Columns_getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Columns_possibleConstructorReturn(this, result); }; }
+
+function Columns_possibleConstructorReturn(self, call) { if (call && (insert_Columns_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return Columns_assertThisInitialized(self); }
+
+function Columns_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function Columns_isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function Columns_getPrototypeOf(o) { Columns_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return Columns_getPrototypeOf(o); }
+
+function insert_Columns_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
 
+
+ // Expandable description cell component
+
+var ExpandableDescription = /*#__PURE__*/function (_Component) {
+  Columns_inherits(ExpandableDescription, _Component);
+
+  var _super = Columns_createSuper(ExpandableDescription);
+
+  function ExpandableDescription(props) {
+    var _this;
+
+    Columns_classCallCheck(this, ExpandableDescription);
+
+    _this = _super.call(this, props);
+
+    insert_Columns_defineProperty(Columns_assertThisInitialized(_this), "toggleExpanded", function () {
+      _this.setState(function (prevState) {
+        return {
+          expanded: !prevState.expanded
+        };
+      });
+    });
+
+    _this.state = {
+      expanded: false
+    };
+    return _this;
+  }
+
+  Columns_createClass(ExpandableDescription, [{
+    key: "render",
+    value: function render() {
+      var value = this.props.value;
+      var expanded = this.state.expanded;
+
+      if (!value || value.trim() === '') {
+        return /*#__PURE__*/react.createElement("div", null);
+      }
+
+      var decodedValue = he_default().decode(value); // Replace line breaks with <br> tags for proper display
+
+      var formattedValue = decodedValue.replace(/\n/g, '<br>');
+      var shouldTruncate = decodedValue.length > 50; // Show expand button if text is longer than 50 chars
+
+      return /*#__PURE__*/react.createElement("div", {
+        className: "eafl-expandable-description"
+      }, /*#__PURE__*/react.createElement("div", {
+        className: "eafl-description-content ".concat(expanded ? 'expanded' : 'collapsed'),
+        onClick: shouldTruncate ? this.toggleExpanded : undefined,
+        style: {
+          cursor: shouldTruncate ? 'pointer' : 'default'
+        },
+        title: shouldTruncate ? __eafl('Click for more') : '',
+        dangerouslySetInnerHTML: {
+          __html: expanded ? formattedValue : shouldTruncate ? formattedValue.substring(0, 50) + '...' : formattedValue
+        }
+      }));
+    }
+  }]);
+
+  return ExpandableDescription;
+}(react.Component);
 
 /* harmony default export */ const insert_Columns = ({
   selects: [],
   getColumns: function getColumns(links) {
-    var _this = this;
+    var _this2 = this;
 
     var categories = eafl_admin_manage_modal.categories.map(function (cat) {
       return {
@@ -34959,6 +35159,19 @@ var BulkEdit = /*#__PURE__*/function (_Component) {
         return /*#__PURE__*/react.createElement(TextFilter, props);
       }
     }, {
+      Header: __eafl('Description'),
+      id: 'description',
+      accessor: 'description',
+      width: 200,
+      Filter: function Filter(props) {
+        return /*#__PURE__*/react.createElement(TextFilter, props);
+      },
+      Cell: function Cell(row) {
+        return /*#__PURE__*/react.createElement(ExpandableDescription, {
+          value: row.value
+        });
+      }
+    }, {
       Header: __eafl('Text'),
       id: 'text',
       accessor: 'text',
@@ -34991,7 +35204,7 @@ var BulkEdit = /*#__PURE__*/function (_Component) {
             if ('html' === row.original.type) {
               links.insertLink(row.original, "".concat(__eafl('Affiliate HTML Code'), " \"").concat(row.original.name ? row.original.name : row.original.id, "\""));
             } else {
-              insertLinkText(_this.selects[row.original.id].value);
+              insertLinkText(_this2.selects[row.original.id].value);
             }
           }
         }, /*#__PURE__*/react.createElement(shared_Icon, {
@@ -34999,7 +35212,7 @@ var BulkEdit = /*#__PURE__*/function (_Component) {
           title: __eafl('Insert Link')
         })), 'html' !== row.original.type && /*#__PURE__*/react.createElement("select", {
           ref: function ref(_ref2) {
-            _this.selects[row.original.id] = _ref2;
+            _this2.selects[row.original.id] = _ref2;
           },
           onChange: function onChange(event) {
             insertLinkText(event.target.value);
@@ -35814,7 +36027,7 @@ var Fields = function Fields(props) {
   var selectedCloakOption = eafl_admin_manage_modal.options.cloak.find(function (option) {
     return option.value === props.link.cloak;
   });
-  var cloakedLink = 'yes' === selectedCloakOption.actual;
+  var cloakedLink = selectedCloakOption && 'yes' === selectedCloakOption.actual;
   return /*#__PURE__*/react.createElement("div", {
     className: "eafl-admin-modal-link-fields"
   }, /*#__PURE__*/react.createElement("div", {
@@ -35854,6 +36067,23 @@ var Fields = function Fields(props) {
   }, __eafl('Details')), /*#__PURE__*/react.createElement("div", {
     className: "eafl-admin-modal-link-fields"
   }, /*#__PURE__*/react.createElement(Field, {
+    id: "active",
+    label: __eafl('Affiliate Link Active'),
+    type: "dropdown",
+    value: props.link.active,
+    onChange: function onChange(value) {
+      props.onLinkChange('active', value);
+    },
+    options: eafl_admin_manage_modal.options.active
+  }), 'no' === props.link.active && /*#__PURE__*/react.createElement(Field, {
+    id: "active_description",
+    label: '',
+    type: "custom"
+  }, /*#__PURE__*/react.createElement("div", {
+    style: {
+      color: 'darkred'
+    }
+  }, 'text' === props.link.type || 'amazon' === props.link.type ? __eafl('This link is inactive. It will be shown as text only.') : __eafl('This link is inactive and the HTML code will not be shown.'))), /*#__PURE__*/react.createElement(Field, {
     id: "type",
     label: __eafl('Link Type'),
     type: "dropdown",
@@ -35921,7 +36151,33 @@ var Fields = function Fields(props) {
   }, /*#__PURE__*/react.createElement("p", null, __eafl('Available in Easy Affiliate Links Premium.'), " ", /*#__PURE__*/react.createElement("a", {
     href: "https://bootstrapped.ventures/easy-affiliate-links/conditional-links/",
     target: "_blank"
-  }, __eafl('Learn more')), "!"))))), 'text' === props.link.type && /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("div", {
+  }, __eafl('Learn more')), "!"))), 'amazon' === props.link.type && /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Field, {
+    id: "amazon",
+    hook: "amazon",
+    label: __eafl('Amazon Product'),
+    type: "custom",
+    link: props.link,
+    onSelectProduct: function onSelectProduct(amazonData) {
+      // Pass all Amazon data as a single update to avoid state batching issues.
+      props.onLinkChange(amazonData);
+    }
+  }, /*#__PURE__*/react.createElement("p", null, __eafl('Amazon Product links are available in Easy Affiliate Links Premium.'), " ", /*#__PURE__*/react.createElement("a", {
+    href: "https://bootstrapped.ventures/easy-affiliate-links/amazon-product-api-links/",
+    target: "_blank"
+  }, __eafl('Learn more')), "!")), /*#__PURE__*/react.createElement(Field, {
+    id: "conditional",
+    hook: "conditional",
+    label: __eafl('Conditional Amazon Products'),
+    type: "custom",
+    conditional: props.link.conditional,
+    linkType: props.link.type,
+    onChange: function onChange(value) {
+      props.onLinkChange('conditional', value);
+    }
+  }, /*#__PURE__*/react.createElement("p", null, __eafl('Available in Easy Affiliate Links Premium.'), " ", /*#__PURE__*/react.createElement("a", {
+    href: "https://bootstrapped.ventures/easy-affiliate-links/conditional-links/",
+    target: "_blank"
+  }, __eafl('Learn more')), "!"))))), ('text' === props.link.type || 'amazon' === props.link.type) && /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("div", {
     className: "eafl-admin-modal-link-fields-group eafl-admin-modal-link-fields-group-shortcode"
   }, /*#__PURE__*/react.createElement("div", {
     className: "eafl-admin-modal-link-fields-group-header"
@@ -35956,7 +36212,7 @@ var Fields = function Fields(props) {
     onChange: function onChange(value) {
       props.onLinkChange('target', value);
     }
-  }), /*#__PURE__*/react.createElement(Field, {
+  }), 'text' === props.link.type && /*#__PURE__*/react.createElement(Field, {
     id: "redirect_type",
     label: __eafl('Redirect Type'),
     type: "radio",
@@ -36075,12 +36331,20 @@ var link_Link = /*#__PURE__*/function (_Component) {
 
     if ('create' === props.mode && props.args.hasOwnProperty('link')) {
       link = link_objectSpread(link_objectSpread({}, link), props.args.link);
+    }
+
+    var originalLink = JSON.parse(JSON.stringify(link)); // If cloning, make link identical except for the ID and set originalLink to empty.
+
+    if ('create' === props.mode && props.args.hasOwnProperty('clone')) {
+      link = JSON.parse(JSON.stringify(props.args.clone));
+      delete link.id;
+      originalLink = {};
     } // Set initial state.
 
 
     _this.state = {
       link: link,
-      originalLink: JSON.parse(JSON.stringify(link)),
+      originalLink: originalLink,
       saveCallback: props.args.hasOwnProperty('saveCallback') ? props.args.saveCallback : false,
       savingChanges: false,
       loadingLink: loadingLink
@@ -36096,8 +36360,16 @@ var link_Link = /*#__PURE__*/function (_Component) {
   link_createClass(Link, [{
     key: "onLinkChange",
     value: function onLinkChange(field, value) {
-      var newLink = JSON.parse(JSON.stringify(this.state.link));
-      newLink[field] = value;
+      var newLink = JSON.parse(JSON.stringify(this.state.link)); // Support passing an object of multiple field changes.
+
+      if ('object' === link_typeof(field) && null !== field) {
+        Object.keys(field).forEach(function (key) {
+          newLink[key] = field[key];
+        });
+      } else {
+        newLink[field] = value;
+      }
+
       this.setState({
         link: newLink
       });

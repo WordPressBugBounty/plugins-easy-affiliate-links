@@ -26,6 +26,7 @@ class EAFL_Post_Type {
 	 */
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'register_post_type' ), 1 );
+		add_action( 'init', array( __CLASS__, 'maybe_exclude_from_link_query' ) );
 	}
 
 	/**
@@ -54,6 +55,57 @@ class EAFL_Post_Type {
 		));
 
 		register_post_type( EAFL_POST_TYPE, $args );
+	}
+
+	/**
+	 * Maybe exclude affiliate links from WordPress link query.
+	 *
+	 * @since    3.8.0
+	 */
+	public static function maybe_exclude_from_link_query() {
+		if ( EAFL_Settings::get( 'exclude_affiliate_links' ) ) {
+			// For Classic Editor
+			add_filter( 'wp_link_query_args', array( __CLASS__, 'exclude_from_link_query' ) );
+			// For Gutenberg Editor - only for link dialog searches
+			add_filter( 'rest_post_search_query', array( __CLASS__, 'exclude_from_search_query' ), 10, 2 );
+		}
+	}
+
+	/**
+	 * Exclude affiliate links from WordPress link query (Classic Editor).
+	 *
+	 * @since    3.8.0
+	 * @param    array $query The link query arguments.
+	 */
+	public static function exclude_from_link_query( $query ) {
+		if ( isset( $query['post_type'] ) && is_array( $query['post_type'] ) ) {
+			$query['post_type'] = array_diff( (array) $query['post_type'], array( EAFL_POST_TYPE ) );
+		}
+
+		return $query;
+	}
+
+	/**
+	 * Exclude affiliate links from REST API search query (Gutenberg Editor - Link Dialog only).
+	 *
+	 * @since    3.8.0
+	 * @param    array            $args    The query arguments.
+	 * @param    WP_REST_Request  $request The request object.
+	 */
+	public static function exclude_from_search_query( $args, $request ) {
+		// Only filter searches that are likely from the link dialog
+		$type = $request->get_param( 'type' );
+		$context = $request->get_param( 'context' );
+		
+		// Link dialog searches have type='post' and context='view'
+		if ( $type === 'post' && $context === 'view' ) {
+			// Exclude EAFL post type from the search
+			if ( isset( $args['post_type'] ) && is_array( $args['post_type'] ) ) {
+				$args['post_type'] = array_diff( $args['post_type'], array( EAFL_POST_TYPE ) );
+			}
+		}
+
+		return $args;
 	}
 }
 

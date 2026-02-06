@@ -17,7 +17,7 @@ class CD_Exclusions extends CD_AbstractProvider
      *
      * @var array
      */
-    protected $data = array(
+    protected $data = [
         'Safari.[\d\.]*',
         'Firefox.[\d\.]*',
         ' Chrome.[\d\.]*',
@@ -66,5 +66,9 @@ class CD_Exclusions extends CD_AbstractProvider
         '; ID bot',
         '; POWER BOT',
         'OCTOPUS-CORE',
-    );
+        'htc_botdugls',
+        'super\/\d+\/Android\/\d+',
+        '"Yandex"',
+        'YandexModule2',
+    ];
 }

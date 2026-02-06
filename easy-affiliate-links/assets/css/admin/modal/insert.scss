@@ -61,6 +61,40 @@
                     }
                 }
             }
+
+            // Expandable description styles
+            .eafl-expandable-description {
+                position: relative;
+                max-width: 100%;
+
+                .eafl-description-content {
+                    line-height: 1.4;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                    
+                    // Ensure line breaks are preserved
+                    br {
+                        display: block;
+                        margin: 2px 0;
+                        content: "";
+                    }
+                    
+                    &.collapsed {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        
+                        // Hide line breaks when collapsed
+                        br {
+                            display: none;
+                        }
+                    }
+                    
+                    &.expanded {
+                        white-space: normal;
+                    }
+                }
+            }
         }
     }
 }

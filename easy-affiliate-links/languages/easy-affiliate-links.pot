@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Easy Affiliate Links\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-29 12:41+0000\n"
+"POT-Creation-Date: 2025-12-16 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,46 +15,46 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.2; wp-5.5"
 
-#: templates/admin/translations.php:203
+#: templates/admin/translations.php:241
 msgid "# Links"
 msgstr ""
 
-#: includes/admin/class-eafl-marketing.php:92
+#: includes/admin/class-eafl-marketing.php:110
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin/class-eafl-marketing.php:94
+#: includes/admin/class-eafl-marketing.php:112
 #, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin/class-eafl-marketing.php:96
+#: includes/admin/class-eafl-marketing.php:114
 #, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/admin/translations.php:82
+#: templates/admin/translations.php:113
 msgid "...or use a custom text"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:216 
+#: includes/admin/class-eafl-manage-modal.php:231 
 #: templates/settings/group-defaults.php:38
 msgid "301 Permanent"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:217 
+#: includes/admin/class-eafl-manage-modal.php:232 
 #: templates/settings/group-defaults.php:39
 msgid "302 Temporary"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:218 
+#: includes/admin/class-eafl-manage-modal.php:233 
 #: templates/settings/group-defaults.php:40
 msgid "307 Temporary"
 msgstr ""
@@ -66,7 +66,7 @@ msgid ""
 "to editors and administrators."
 msgstr ""
 
-#: templates/admin/translations.php:147
+#: templates/admin/translations.php:183
 msgid "Access Forbidden"
 msgstr ""
 
@@ -86,23 +86,28 @@ msgstr ""
 msgid "Access to Tools Page"
 msgstr ""
 
-#: templates/admin/translations.php:46
+#: templates/admin/translations.php:74
 msgid "Action options:"
 msgstr ""
 
-#: templates/admin/translations.php:48
+#: includes/admin/class-eafl-manage-modal.php:298 
+#: templates/admin/translations.php:195
+msgid "Active"
+msgstr ""
+
+#: templates/admin/translations.php:76
 msgid "Add Categories"
 msgstr ""
 
-#: templates/admin/translations.php:39
+#: templates/admin/translations.php:55
 msgid "Add condition"
 msgstr ""
 
-#: templates/admin/translations.php:193
+#: templates/admin/translations.php:231
 msgid "Add Image"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:250
+#: includes/admin/class-eafl-manage-modal.php:265
 msgid "Add nofollow attribute"
 msgstr ""
 
@@ -110,11 +115,11 @@ msgstr ""
 msgid "Add the nofollow attribute to affiliate links"
 msgstr ""
 
-#: templates/admin/translations.php:110
+#: templates/admin/translations.php:146
 msgid "Add variant"
 msgstr ""
 
-#: templates/admin/translations.php:99
+#: templates/admin/translations.php:135
 msgid "Additional CSS Classes"
 msgstr ""
 
@@ -122,16 +127,20 @@ msgstr ""
 msgid "Address to email"
 msgstr ""
 
-#: templates/settings/settings.php:36 templates/admin/settings.php:17
+#: templates/settings/settings.php:41 templates/admin/settings.php:17
 msgid "Advanced"
 msgstr ""
 
-#: templates/admin/translations.php:80
+#: templates/admin/translations.php:111
 msgid "Affiliate HTML Code"
 msgstr ""
 
 #: templates/settings/group-disclaimer.php:35
 msgid "affiliate link"
+msgstr ""
+
+#: templates/admin/translations.php:118
+msgid "Affiliate Link Active"
 msgstr ""
 
 #: templates/settings/group-disclaimer.php:117
@@ -146,60 +155,95 @@ msgstr ""
 msgid "All affiliate links"
 msgstr ""
 
-#: templates/admin/translations.php:73
+#: templates/admin/translations.php:103
 msgid "All Categories"
 msgstr ""
 
-#: templates/admin/translations.php:211
+#: templates/admin/translations.php:249
 msgid "All Types"
 msgstr ""
 
-#: templates/admin/translations.php:181
+#: templates/settings/group-amazon.php:155
+msgid "Amazon Access Key"
+msgstr ""
+
+#: templates/admin/translations.php:58
+msgid ""
+"Amazon API is not configured. Please set up your Amazon Product Advertising "
+"API credentials in the settings."
+msgstr ""
+
+#: includes/admin/class-eafl-manage-modal.php:155 
+#: templates/admin/translations.php:130
+msgid "Amazon Product"
+msgstr ""
+
+#: templates/admin/translations.php:131
+msgid "Amazon Product links are available in Easy Affiliate Links Premium."
+msgstr ""
+
+#: templates/settings/group-amazon.php:161
+msgid "Amazon Secret Key"
+msgstr ""
+
+#: templates/settings/group-amazon.php:134
+msgid "Amazon Store"
+msgstr ""
+
+#: templates/settings/group-amazon.php:142
+msgid "Amazon Store ID"
+msgstr ""
+
+#: templates/admin/translations.php:219
 msgid "Any Bad Status"
 msgstr ""
 
-#: templates/admin/translations.php:75
+#: templates/admin/translations.php:105
 msgid "Any Categories"
 msgstr ""
 
-#: templates/admin/translations.php:170
+#: templates/admin/translations.php:209
 msgid "Any Cloaking"
 msgstr ""
 
-#: templates/admin/translations.php:180
+#: templates/admin/translations.php:218
 msgid "Any Good Status"
 msgstr ""
 
-#: templates/admin/translations.php:161
+#: templates/admin/translations.php:200
 msgid "Any Links"
 msgstr ""
 
-#: templates/admin/translations.php:173
+#: templates/admin/translations.php:212
 msgid "Any Nofollow"
 msgstr ""
 
-#: templates/admin/translations.php:172
+#: templates/admin/translations.php:211
 msgid "Any Redirect Type"
 msgstr ""
 
-#: templates/admin/translations.php:174
+#: templates/admin/translations.php:213
 msgid "Any Sponsored"
 msgstr ""
 
-#: templates/admin/translations.php:179
+#: templates/admin/translations.php:196
 msgid "Any Status"
 msgstr ""
 
-#: templates/admin/translations.php:171
+#: templates/admin/translations.php:210
 msgid "Any Target"
 msgstr ""
 
-#: templates/admin/translations.php:159
+#: templates/admin/translations.php:198
 msgid "Any Type"
 msgstr ""
 
-#: templates/admin/translations.php:175
+#: templates/admin/translations.php:214
 msgid "Any UGC"
+msgstr ""
+
+#: templates/settings/group-amazon.php:150
+msgid "API Details"
 msgstr ""
 
 #: templates/settings/group-disclaimer.php:24
@@ -210,36 +254,40 @@ msgstr ""
 msgid "Append a text disclaimer"
 msgstr ""
 
-#: templates/admin/translations.php:105
+#: templates/admin/translations.php:141
 msgid "Are you sure you want to close without saving changes?"
 msgstr ""
 
-#: templates/admin/translations.php:156
+#: templates/admin/translations.php:193
 msgid "Are you sure you want to delete"
 msgstr ""
 
-#: templates/admin/translations.php:205
+#: templates/admin/translations.php:243
 msgid "Are you sure you want to delete this click?"
 msgstr ""
 
-#: templates/admin/translations.php:115
+#: templates/admin/translations.php:151
 msgid "Are you sure you want to leave this page?"
 msgstr ""
 
-#: templates/admin/translations.php:200
+#: templates/admin/translations.php:238
 msgid "Are you sure you want to merge"
 msgstr ""
 
-#: templates/admin/translations.php:38
+#: templates/admin/translations.php:54
 msgid "Are you sure you want to remove this condition?"
 msgstr ""
 
-#: templates/admin/translations.php:166
+#: templates/admin/translations.php:205
 msgid "Are you sure you want to reset the clicks for"
 msgstr ""
 
 #: templates/settings/group-broken-links.php:64
 msgid "As soon as a broken link is found"
+msgstr ""
+
+#: templates/admin/translations.php:62
+msgid "ASIN"
 msgstr ""
 
 #: templates/settings/group-broken-links.php:10
@@ -258,7 +306,7 @@ msgstr ""
 msgid "Automatically show a disclaimer with your affiliate links."
 msgstr ""
 
-#: templates/admin/translations.php:91
+#: templates/admin/translations.php:124
 msgid "Available in Easy Affiliate Links Premium."
 msgstr ""
 
@@ -282,53 +330,61 @@ msgstr ""
 msgid "Broken Links"
 msgstr ""
 
-#: templates/admin/translations.php:67
+#: templates/admin/translations.php:96
 msgid "Bulk Edit"
 msgstr ""
 
-#: templates/admin/translations.php:107
+#: templates/admin/translations.php:143
 msgid "Cancel Changes"
 msgstr ""
 
 #: templates/settings/group-disclaimer.php:124 
-#: templates/admin/translations.php:27 
+#: templates/admin/translations.php:33 
 #: templates/admin/menu/import-export/import-csv-mapping.php:79
 msgid "Categories"
 msgstr ""
 
-#: templates/admin/translations.php:135
+#: templates/admin/translations.php:171
 msgid "Category"
 msgstr ""
 
-#: templates/admin/translations.php:50
+#: templates/admin/translations.php:78
+msgid "Change Active Status"
+msgstr ""
+
+#: templates/admin/translations.php:79
 msgid "Change Cloaking"
 msgstr ""
 
-#: templates/admin/translations.php:53
+#: templates/admin/translations.php:82
 msgid "Change Nofollow"
 msgstr ""
 
-#: templates/admin/translations.php:52
+#: templates/admin/translations.php:64
+msgid "Change Product"
+msgstr ""
+
+#: templates/admin/translations.php:81
 msgid "Change Redirect Type"
 msgstr ""
 
-#: templates/admin/translations.php:54
+#: templates/admin/translations.php:83
 msgid "Change Sponsored"
 msgstr ""
 
-#: templates/admin/translations.php:56
+#: templates/admin/translations.php:85
 msgid "Change Status Emails"
 msgstr ""
 
-#: templates/admin/translations.php:51
+#: templates/admin/translations.php:80
 msgid "Change Target"
 msgstr ""
 
-#: templates/admin/translations.php:114
+#: templates/admin/translations.php:150
 msgid "Change Text"
 msgstr ""
 
-#: templates/admin/translations.php:55
+#: templates/admin/translations.php:84
 msgid "Change UGC"
 msgstr ""
 
@@ -344,7 +400,7 @@ msgid ""
 "default for new links."
 msgstr ""
 
-#: templates/admin/translations.php:25
+#: templates/admin/translations.php:31
 msgid "Chart"
 msgstr ""
 
@@ -377,8 +433,12 @@ msgstr ""
 msgid "Clean up link clicks"
 msgstr ""
 
-#: templates/admin/translations.php:138
+#: templates/admin/translations.php:174
 msgid "Click"
+msgstr ""
+
+#: templates/admin/translations.php:100
+msgid "Click for more"
 msgstr ""
 
 #: includes/admin/class-eafl-notices.php:124
@@ -404,16 +464,32 @@ msgstr ""
 msgid "Clicks"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:152 
+#: templates/admin/translations.php:25
+msgid "Clicks over Time"
+msgstr ""
+
+#: templates/admin/translations.php:26
+msgid "Clicks over Time per Category"
+msgstr ""
+
+#: templates/admin/translations.php:27
+msgid "Clicks over Time per Link"
+msgstr ""
+
+#: includes/admin/class-eafl-manage-modal.php:167 
 #: templates/settings/group-defaults.php:18
 msgid "Cloak affiliate link"
 msgstr ""
 
-#: templates/admin/translations.php:169
+#: templates/admin/translations.php:208
 msgid "Cloaking"
 msgstr ""
 
-#: templates/admin/translations.php:68
+#: templates/admin/translations.php:191
+msgid "Clone Link"
+msgstr ""
+
+#: templates/admin/translations.php:97
 msgid "Close"
 msgstr ""
 
@@ -426,36 +502,46 @@ msgstr ""
 msgid "Column Matching"
 msgstr ""
 
-#: templates/admin/translations.php:177
+#: templates/admin/translations.php:216
 msgid "Conditional"
 msgstr ""
 
-#: templates/admin/translations.php:96
+#: templates/admin/translations.php:132
+msgid "Conditional Amazon Products"
+msgstr ""
+
+#: templates/admin/translations.php:129
 msgid "Conditional HTML Code"
 msgstr ""
 
-#: templates/admin/translations.php:90
+#: templates/admin/translations.php:123
 msgid "Conditional URLs"
 msgstr ""
 
-#: templates/admin/translations.php:36
+#: templates/admin/translations.php:51
+msgid ""
+"Conditions will match from top to bottom. If no match is found the Amazon "
+"Product above is used as the default."
+msgstr ""
+
+#: templates/admin/translations.php:52
 msgid ""
 "Conditions will match from top to bottom. If no match is found the HTML Code "
 "above is used as the default."
 msgstr ""
 
-#: templates/admin/translations.php:35
+#: templates/admin/translations.php:50
 msgid ""
 "Conditions will match from top to bottom. If no match is found the Link "
 "Destination URL is used as the default. An empty conditional or default URL "
 "will show regular text instead of a link."
 msgstr ""
 
-#: templates/admin/translations.php:42
+#: templates/admin/translations.php:70
 msgid "Copied!"
 msgstr ""
 
-#: templates/admin/translations.php:43
+#: templates/admin/translations.php:71
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -463,15 +549,15 @@ msgstr ""
 msgid "Count Clicks"
 msgstr ""
 
-#: templates/admin/translations.php:131
+#: templates/admin/translations.php:167
 msgid "Create"
 msgstr ""
 
-#: templates/admin/translations.php:109
+#: templates/admin/translations.php:145
 msgid "Create Link"
 msgstr ""
 
-#: templates/admin/translations.php:69
+#: templates/admin/translations.php:98
 msgid "Create new Affiliate Link"
 msgstr ""
 
@@ -487,6 +573,10 @@ msgstr ""
 msgid "Custom Code"
 msgstr ""
 
+#: templates/admin/translations.php:46
+msgid "Custom Dates"
+msgstr ""
+
 #: templates/settings/group-shortcode.php:6
 msgid "Customize the link that gets output by the shortcode."
 msgstr ""
@@ -495,11 +585,12 @@ msgstr ""
 msgid "Data is limited to 10 clicks"
 msgstr ""
 
-#: includes/admin/class-eafl-privacy.php:94 templates/admin/translations.php:71
+#: includes/admin/class-eafl-privacy.php:94 
+#: templates/admin/translations.php:101
 msgid "Date"
 msgstr ""
 
-#: templates/admin/translations.php:32
+#: templates/admin/translations.php:47
 msgid "Date Range"
 msgstr ""
 
@@ -513,7 +604,7 @@ msgstr ""
 msgid "Default Cloaking"
 msgstr ""
 
-#: templates/admin/translations.php:98
+#: templates/admin/translations.php:134
 msgid "Default Link Text"
 msgstr ""
 
@@ -521,11 +612,11 @@ msgstr ""
 msgid "Default options to use for your affiliate links."
 msgstr ""
 
-#: templates/settings/group-general.php:33
+#: templates/settings/group-general.php:48
 msgid "Default Page Size"
 msgstr ""
 
-#: templates/settings/group-general.php:34
+#: templates/settings/group-general.php:49
 msgid "Default page size to use on the Affiliate Links > Manage page."
 msgstr ""
 
@@ -561,31 +652,31 @@ msgstr ""
 msgid "Defaults for new links"
 msgstr ""
 
-#: templates/admin/translations.php:47
+#: templates/admin/translations.php:75
 msgid "Delete Categories"
 msgstr ""
 
-#: templates/admin/translations.php:202
+#: templates/admin/translations.php:240
 msgid "Delete Category"
 msgstr ""
 
-#: templates/admin/translations.php:204
+#: templates/admin/translations.php:242
 msgid "Delete Click"
 msgstr ""
 
-#: templates/admin/translations.php:44
+#: templates/admin/translations.php:72
 msgid "Delete Clicks"
 msgstr ""
 
-#: templates/admin/translations.php:155
+#: templates/admin/translations.php:192
 msgid "Delete Link"
 msgstr ""
 
-#: templates/admin/translations.php:60
+#: templates/admin/translations.php:89
 msgid "Delete Links"
 msgstr ""
 
-#: templates/admin/translations.php:86 
+#: templates/admin/translations.php:108 
 #: templates/admin/menu/import-export/import-csv-mapping.php:73
 msgid "Description"
 msgstr ""
@@ -594,11 +685,11 @@ msgstr ""
 msgid "Desktop"
 msgstr ""
 
-#: templates/admin/translations.php:145
+#: templates/admin/translations.php:181
 msgid "Destination Problems"
 msgstr ""
 
-#: templates/admin/translations.php:87
+#: templates/admin/translations.php:117
 msgid "Details"
 msgstr ""
 
@@ -606,11 +697,11 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-#: templates/admin/translations.php:212
+#: templates/admin/translations.php:250
 msgid "Device Agent"
 msgstr ""
 
-#: templates/admin/translations.php:210
+#: templates/admin/translations.php:248
 msgid "Device Type"
 msgstr ""
 
@@ -630,7 +721,7 @@ msgstr ""
 msgid "Display"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:249
+#: includes/admin/class-eafl-manage-modal.php:264
 msgid "Do not add nofollow attribute"
 msgstr ""
 
@@ -638,7 +729,7 @@ msgstr ""
 msgid "Do NOT add nofollow attribute to affiliate links"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:153 
+#: includes/admin/class-eafl-manage-modal.php:168 
 #: templates/settings/group-defaults.php:19
 msgid "Do not cloak affiliate link"
 msgstr ""
@@ -647,11 +738,11 @@ msgstr ""
 msgid "Do not use an automatic disclaimer"
 msgstr ""
 
-#: templates/settings/settings.php:25
+#: templates/settings/settings.php:28
 msgid "Documentation"
 msgstr ""
 
-#: templates/admin/translations.php:190
+#: templates/admin/translations.php:228
 msgid "Does not have Image"
 msgstr ""
 
@@ -659,7 +750,7 @@ msgstr ""
 msgid "Does not update automatically."
 msgstr ""
 
-#: includes/admin/import-export/class-eafl-ie-export-csv.php:77
+#: includes/admin/import-export/class-eafl-ie-export-csv.php:78
 msgid "Download CSV"
 msgstr ""
 
@@ -675,7 +766,7 @@ msgstr ""
 msgid "EAFL Tools"
 msgstr ""
 
-#: templates/settings/settings.php:26
+#: templates/settings/settings.php:29
 msgid ""
 "Easily manage and cloak all your affiliate links with Easy Affiliate Links. "
 "Documentation can be found in our Knowledge Base."
@@ -701,19 +792,19 @@ msgstr ""
 msgid "Easy Affiliate Links Tools"
 msgstr ""
 
-#: templates/admin/translations.php:106
+#: templates/admin/translations.php:142
 msgid "Edit Affiliate Link"
 msgstr ""
 
-#: templates/admin/translations.php:191
+#: templates/admin/translations.php:229
 msgid "Edit Image"
 msgstr ""
 
-#: templates/admin/translations.php:154
+#: templates/admin/translations.php:190
 msgid "Edit Link"
 msgstr ""
 
-#: templates/admin/translations.php:122
+#: templates/admin/translations.php:158
 msgid "Edit Post"
 msgstr ""
 
@@ -721,7 +812,7 @@ msgstr ""
 msgid "Email Frequency"
 msgstr ""
 
-#: templates/admin/translations.php:65
+#: templates/admin/translations.php:94
 msgid "Email if broken"
 msgstr ""
 
@@ -737,12 +828,20 @@ msgstr ""
 msgid "Enable to add rel=\"noreferrer\" to the link output"
 msgstr ""
 
-#: templates/admin/translations.php:34
+#: templates/admin/translations.php:49
 msgid "End Date"
+msgstr ""
+
+#: templates/admin/translations.php:57
+msgid "Error searching for products."
 msgstr ""
 
 #: templates/settings/group-statistics.php:29
 msgid "Exclude Clicks"
+msgstr ""
+
+#: templates/settings/group-general.php:20
+msgid "Exclude from Regular Link Add"
 msgstr ""
 
 #: templates/settings/group-statistics.php:61 
@@ -766,11 +865,11 @@ msgstr ""
 msgid "FAQ & Support"
 msgstr ""
 
-#: templates/admin/translations.php:117
+#: templates/admin/translations.php:153
 msgid "Filter:"
 msgstr ""
 
-#: templates/admin/translations.php:127
+#: templates/admin/translations.php:163
 msgid "filtered of"
 msgstr ""
 
@@ -793,19 +892,23 @@ msgid "Full data is available in"
 msgstr ""
 
 #: templates/settings/group-general.php:5 templates/admin/settings.php:16 
-#: templates/admin/translations.php:72
+#: templates/admin/translations.php:102
 msgid "General"
 msgstr ""
 
-#: templates/admin/translations.php:187
+#: templates/admin/translations.php:59
+msgid "Go to Settings"
+msgstr ""
+
+#: templates/admin/translations.php:225
 msgid "Grid Image"
 msgstr ""
 
-#: templates/admin/translations.php:189
+#: templates/admin/translations.php:227
 msgid "Has Image"
 msgstr ""
 
-#: templates/admin/translations.php:162
+#: templates/admin/translations.php:201
 msgid "Has Replacement"
 msgstr ""
 
@@ -813,12 +916,12 @@ msgstr ""
 msgid "How often you want to get emailed if problems are found."
 msgstr ""
 
-#: templates/admin/translations.php:176
+#: templates/admin/translations.php:215
 msgid "HTML"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:140 
-#: templates/admin/translations.php:95
+#: includes/admin/class-eafl-manage-modal.php:151 
+#: templates/admin/translations.php:128
 msgid "HTML Code"
 msgstr ""
 
@@ -834,7 +937,7 @@ msgstr ""
 msgid "https://bootstrapped.ventures/easy-affiliate-links/"
 msgstr ""
 
-#: templates/admin/translations.php:157 
+#: templates/admin/translations.php:194 
 #: templates/admin/menu/import-export/import-csv-mapping.php:61
 msgid "ID"
 msgstr ""
@@ -845,7 +948,7 @@ msgid ""
 "to create new links."
 msgstr ""
 
-#: templates/admin/translations.php:66
+#: templates/admin/translations.php:95
 msgid "Ignore when broken"
 msgstr ""
 
@@ -869,15 +972,23 @@ msgid ""
 "Important: changing your slug will break any existing links to the old slug."
 msgstr ""
 
-#: templates/admin/translations.php:81
+#: includes/admin/class-eafl-manage-modal.php:302
+msgid "Inactive"
+msgstr ""
+
+#: templates/admin/translations.php:112
 msgid "Insert Link"
 msgstr ""
 
-#: templates/admin/translations.php:199
+#: templates/settings/settings.php:39
+msgid "Integrations"
+msgstr ""
+
+#: templates/admin/translations.php:237
 msgid "into"
 msgstr ""
 
-#: templates/admin/translations.php:143
+#: templates/admin/translations.php:179
 msgid "Invalid URL"
 msgstr ""
 
@@ -895,11 +1006,27 @@ msgid ""
 "It's a good idea to backup your WP database before using the import feature."
 msgstr ""
 
+#: templates/admin/translations.php:39
+msgid "Last 30 Days"
+msgstr ""
+
+#: templates/admin/translations.php:41
+msgid "Last 365 Days"
+msgstr ""
+
+#: templates/admin/translations.php:38
+msgid "Last 7 Days"
+msgstr ""
+
+#: templates/admin/translations.php:40
+msgid "Last 90 Days"
+msgstr ""
+
 #: includes/admin/class-eafl-notices.php:130
 msgid "Last update:"
 msgstr ""
 
-#: templates/admin/translations.php:92
+#: templates/admin/translations.php:125
 msgid "Learn more"
 msgstr ""
 
@@ -907,11 +1034,11 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: templates/admin/translations.php:168
+#: templates/admin/translations.php:207
 msgid "Lifetime"
 msgstr ""
 
-#: templates/admin/translations.php:133
+#: templates/admin/translations.php:169
 msgid "Link"
 msgstr ""
 
@@ -925,39 +1052,43 @@ msgctxt "link category general name"
 msgid "Link Categories"
 msgstr ""
 
-#: templates/admin/translations.php:93
+#: templates/admin/translations.php:126
 msgid "Link Cloaking"
 msgstr ""
 
-#: templates/admin/translations.php:89
+#: templates/admin/translations.php:122
 msgid "Link Destination URL"
 msgstr ""
 
-#: templates/admin/translations.php:123
+#: templates/admin/translations.php:30
+msgid "Link Details"
+msgstr ""
+
+#: templates/admin/translations.php:159
 msgid "Link ID"
 msgstr ""
 
-#: templates/admin/translations.php:124
+#: templates/admin/translations.php:160
 msgid "Link Name"
 msgstr ""
 
-#: templates/admin/translations.php:206
+#: templates/admin/translations.php:244
 msgid "Link Shortlink"
 msgstr ""
 
-#: templates/admin/translations.php:113
+#: templates/admin/translations.php:149
 msgid "Link text"
 msgstr ""
 
-#: templates/admin/translations.php:79
+#: templates/admin/translations.php:110
 msgid "Link text to use for:"
 msgstr ""
 
-#: templates/admin/translations.php:88
+#: templates/admin/translations.php:121
 msgid "Link Type"
 msgstr ""
 
-#: templates/admin/translations.php:207
+#: templates/admin/translations.php:245
 msgid "Link URL"
 msgstr ""
 
@@ -965,8 +1096,12 @@ msgstr ""
 msgid "Link Usage"
 msgstr ""
 
-#: templates/settings/group-general.php:9 templates/admin/translations.php:26
+#: templates/settings/group-general.php:9 templates/admin/translations.php:32
 msgid "Links"
+msgstr ""
+
+#: templates/settings/group-amazon.php:143
+msgid "Make sure this is the partner tag for the store selected above."
 msgstr ""
 
 #: templates/settings/group-broken-links.php:44
@@ -979,7 +1114,7 @@ msgstr ""
 msgid "Manage"
 msgstr ""
 
-#: templates/settings/group-general.php:29
+#: templates/settings/group-general.php:44
 msgid "Manage Page"
 msgstr ""
 
@@ -991,7 +1126,7 @@ msgstr ""
 msgid "Max # Clicks per request"
 msgstr ""
 
-#: templates/admin/translations.php:197
+#: templates/admin/translations.php:235
 msgid "Merge into another category"
 msgstr ""
 
@@ -1008,41 +1143,41 @@ msgstr ""
 msgid "More information on updating the plugin"
 msgstr ""
 
-#: templates/admin/translations.php:209 
+#: templates/admin/translations.php:247 
 #: includes/public/api/class-eafl-api-manage-clicks.php:191
 msgid "n/a"
 msgstr ""
 
-#: templates/admin/translations.php:77 
+#: templates/admin/translations.php:107 
 #: templates/admin/menu/import-export/import-csv-mapping.php:67
 msgid "Name"
 msgstr ""
 
-#: templates/admin/translations.php:186
+#: templates/admin/translations.php:224
 msgid "Never"
 msgstr ""
 
-#: templates/admin/translations.php:74
+#: templates/admin/translations.php:104
 msgid "No Categories"
 msgstr ""
 
-#: templates/admin/translations.php:151
+#: templates/admin/translations.php:187
 msgid "No Headers"
 msgstr ""
 
-#: templates/admin/translations.php:30
+#: templates/admin/translations.php:36
 msgid "No links found"
 msgstr ""
 
-#: templates/admin/translations.php:163
+#: templates/admin/translations.php:202
 msgid "No Replacement"
 msgstr ""
 
-#: templates/admin/translations.php:142
+#: templates/admin/translations.php:178
 msgid "No URL set"
 msgstr ""
 
-#: templates/admin/translations.php:102
+#: templates/admin/translations.php:138
 msgid "Nofollow"
 msgstr ""
 
@@ -1050,11 +1185,11 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-#: templates/admin/translations.php:146
+#: templates/admin/translations.php:182
 msgid "Not Found Error"
 msgstr ""
 
-#: templates/admin/translations.php:61
+#: templates/admin/translations.php:90
 msgid "Not Sponsored"
 msgstr ""
 
@@ -1062,7 +1197,7 @@ msgstr ""
 msgid "Not sure how to get started?"
 msgstr ""
 
-#: templates/admin/translations.php:63
+#: templates/admin/translations.php:92
 msgid "Not UGC"
 msgstr ""
 
@@ -1070,15 +1205,15 @@ msgstr ""
 msgid "Number of links to check per day"
 msgstr ""
 
-#: templates/admin/translations.php:125
+#: templates/admin/translations.php:161
 msgid "Occurrences"
 msgstr ""
 
-#: templates/admin/translations.php:139
+#: templates/admin/translations.php:175
 msgid "OK"
 msgstr ""
 
-#: templates/admin/translations.php:140
+#: templates/admin/translations.php:176
 msgid "OK after Redirect"
 msgstr ""
 
@@ -1094,33 +1229,33 @@ msgstr ""
 msgid "Once per week"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:185 
+#: includes/admin/class-eafl-manage-modal.php:200 
 #: templates/settings/group-defaults.php:29
 msgid "Open in new tab"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:184 
+#: includes/admin/class-eafl-manage-modal.php:199 
 #: templates/settings/group-defaults.php:28
 msgid "Open in same tab"
 msgstr ""
 
-#: templates/admin/translations.php:112
+#: templates/admin/translations.php:148
 msgid "or change link text"
 msgstr ""
 
-#: templates/admin/translations.php:70
+#: templates/admin/translations.php:99
 msgid "or insert an existing link"
 msgstr ""
 
-#: templates/admin/translations.php:85
+#: templates/admin/translations.php:116
 msgid "Organization"
 msgstr ""
 
-#: templates/admin/translations.php:150
+#: templates/admin/translations.php:186
 msgid "Other Problems"
 msgstr ""
 
-#: templates/admin/translations.php:97
+#: templates/admin/translations.php:133
 msgid "Output"
 msgstr ""
 
@@ -1128,11 +1263,11 @@ msgstr ""
 msgid "Output Public CSS"
 msgstr ""
 
-#: templates/admin/translations.php:132
+#: templates/admin/translations.php:168
 msgid "Overview"
 msgstr ""
 
-#: templates/settings/group-general.php:20
+#: templates/settings/group-general.php:27
 msgid "Pass Along Query Parameters"
 msgstr ""
 
@@ -1140,28 +1275,32 @@ msgstr ""
 msgid "Permissions"
 msgstr ""
 
-#: templates/admin/translations.php:165
+#: templates/admin/translations.php:204
 msgid "Pick a replacement to use instead of this link."
 msgstr ""
 
-#: templates/admin/translations.php:118
+#: templates/admin/translations.php:56
+msgid "Please enter at least 2 characters to search."
+msgstr ""
+
+#: templates/admin/translations.php:154
 msgid "Post ID"
 msgstr ""
 
-#: templates/admin/translations.php:120
+#: templates/admin/translations.php:156
 msgid "Post Name"
 msgstr ""
 
-#: templates/admin/translations.php:119
+#: templates/admin/translations.php:155
 msgid "Post Type"
 msgstr ""
 
-#: includes/public/class-eafl-post-type.php:38
+#: includes/public/class-eafl-post-type.php:39
 msgctxt "post type general name"
 msgid "Affiliate Links"
 msgstr ""
 
-#: includes/public/class-eafl-post-type.php:39
+#: includes/public/class-eafl-post-type.php:40
 msgctxt "post type singular name"
 msgid "Affiliate Link"
 msgstr ""
@@ -1175,7 +1314,7 @@ msgid "Preferred Tooltip Placement"
 msgstr ""
 
 #: templates/settings/group-disclaimer.php:17 
-#: templates/admin/translations.php:57
+#: templates/admin/translations.php:86
 msgid "Premium Only"
 msgstr ""
 
@@ -1183,11 +1322,24 @@ msgstr ""
 msgid "Prepend a text disclaimer"
 msgstr ""
 
+#: templates/settings/group-general.php:21
+msgid ""
+"Prevent affiliate links from showing up when adding a regular WordPress link."
+msgstr ""
+
+#: templates/admin/translations.php:43
+msgid "Previous Month"
+msgstr ""
+
 #: templates/admin/translations.php:13
 msgid "Previous Period"
 msgstr ""
 
-#: templates/admin/translations.php:149
+#: templates/admin/translations.php:45
+msgid "Previous Year"
+msgstr ""
+
+#: templates/admin/translations.php:185
 msgid "Problem after Redirect"
 msgstr ""
 
@@ -1199,7 +1351,7 @@ msgstr ""
 msgid "Raw Data"
 msgstr ""
 
-#: templates/admin/translations.php:101
+#: templates/admin/translations.php:137
 msgid "Redirect Type"
 msgstr ""
 
@@ -1207,7 +1359,7 @@ msgstr ""
 msgid "Referer"
 msgstr ""
 
-#: templates/admin/translations.php:208
+#: templates/admin/translations.php:246
 msgid "Referer URL"
 msgstr ""
 
@@ -1227,7 +1379,7 @@ msgstr ""
 msgid "Remove Bots"
 msgstr ""
 
-#: templates/admin/translations.php:49
+#: templates/admin/translations.php:77
 msgid "Remove Categories"
 msgstr ""
 
@@ -1251,23 +1403,23 @@ msgid ""
 "example:"
 msgstr ""
 
-#: templates/admin/translations.php:37
+#: templates/admin/translations.php:53
 msgid "Remove Condition"
 msgstr ""
 
-#: templates/admin/translations.php:192
+#: templates/admin/translations.php:230
 msgid "Remove Image"
 msgstr ""
 
-#: templates/admin/translations.php:194
+#: templates/admin/translations.php:232
 msgid "Remove Notice"
 msgstr ""
 
-#: templates/admin/translations.php:195
+#: templates/admin/translations.php:233
 msgid "Rename Category"
 msgstr ""
 
-#: templates/admin/translations.php:160
+#: templates/admin/translations.php:199
 msgid "Replacement"
 msgstr ""
 
@@ -1275,7 +1427,7 @@ msgstr ""
 msgid "Request"
 msgstr ""
 
-#: templates/admin/translations.php:58
+#: templates/admin/translations.php:87
 msgid "Reset Clicks"
 msgstr ""
 
@@ -1301,7 +1453,7 @@ msgstr ""
 msgid "Row"
 msgstr ""
 
-#: templates/admin/translations.php:129
+#: templates/admin/translations.php:165
 msgid "rows"
 msgstr ""
 
@@ -1311,8 +1463,16 @@ msgid ""
 "background."
 msgstr ""
 
-#: templates/admin/translations.php:108
+#: templates/admin/translations.php:144
 msgid "Save Changes"
+msgstr ""
+
+#: templates/admin/translations.php:67
+msgid "Search"
+msgstr ""
+
+#: templates/admin/translations.php:65
+msgid "Search for Amazon products..."
 msgstr ""
 
 #: includes/admin/tools/class-eafl-tools-find-relations.php:48
@@ -1320,29 +1480,32 @@ msgid "Search for links used in posts and pages on your website."
 msgstr ""
 
 #: templates/admin/menu/tools/find_relations.php:16
-#, php-format
 msgid "Searching %d post"
 msgid_plural "Searching %d posts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/admin/translations.php:41
+#: templates/admin/translations.php:66
+msgid "Searching..."
+msgstr ""
+
+#: templates/admin/translations.php:69
 msgid "Select"
 msgstr ""
 
-#: templates/admin/translations.php:45
+#: templates/admin/translations.php:73
 msgid "Select an action to perform:"
 msgstr ""
 
-#: templates/admin/translations.php:31
+#: templates/admin/translations.php:37
 msgid "Select at least 1 link to display."
 msgstr ""
 
-#: templates/admin/translations.php:111
+#: templates/admin/translations.php:147
 msgid "Select from list or type to create..."
 msgstr ""
 
-#: templates/admin/translations.php:40
+#: templates/admin/translations.php:68
 msgid "Select Media"
 msgstr ""
 
@@ -1365,12 +1528,12 @@ msgstr ""
 msgid "Send an email if the automatic check finds a broken link."
 msgstr ""
 
-#: templates/admin/translations.php:148
+#: templates/admin/translations.php:184
 msgid "Server Error"
 msgstr ""
 
 #: includes/admin/class-eafl-tools-manager.php:79 
-#: includes/public/class-eafl-settings.php:36
+#: includes/public/class-eafl-settings.php:37
 msgid "Settings"
 msgstr ""
 
@@ -1378,15 +1541,15 @@ msgstr ""
 msgid "Shortcode"
 msgstr ""
 
-#: templates/admin/translations.php:83
+#: templates/admin/translations.php:114
 msgid "Shortlink"
 msgstr ""
 
-#: templates/settings/group-general.php:13 templates/admin/translations.php:94
+#: templates/settings/group-general.php:13 templates/admin/translations.php:127
 msgid "Shortlink Slug"
 msgstr ""
 
-#: templates/admin/translations.php:188
+#: templates/admin/translations.php:226
 msgid "Show All"
 msgstr ""
 
@@ -1394,7 +1557,7 @@ msgstr ""
 msgid "Show Disclaimer for"
 msgstr ""
 
-#: templates/admin/translations.php:126
+#: templates/admin/translations.php:162
 msgid "Showing"
 msgstr ""
 
@@ -1414,19 +1577,19 @@ msgstr ""
 msgid "Smaller"
 msgstr ""
 
-#: templates/admin/translations.php:116
+#: templates/admin/translations.php:152
 msgid "Sort:"
 msgstr ""
 
-#: templates/admin/translations.php:62
+#: templates/admin/translations.php:91
 msgid "Sponsored"
 msgstr ""
 
-#: templates/admin/translations.php:33
+#: templates/admin/translations.php:48
 msgid "Start Date"
 msgstr ""
 
-#: templates/admin/translations.php:29
+#: templates/admin/translations.php:35
 msgid "Start typing to search for links"
 msgstr ""
 
@@ -1434,27 +1597,27 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
-#: templates/admin/translations.php:178
+#: templates/admin/translations.php:217
 msgid "Status"
 msgstr ""
 
-#: templates/admin/translations.php:152
+#: templates/admin/translations.php:188
 msgid "Status Code Unkown"
 msgstr ""
 
-#: templates/admin/translations.php:183
+#: templates/admin/translations.php:221
 msgid "Status Details"
 msgstr ""
 
-#: templates/admin/translations.php:184
+#: templates/admin/translations.php:222
 msgid "Status Emails"
 msgstr ""
 
-#: templates/admin/translations.php:153
+#: templates/admin/translations.php:189
 msgid "Status Unknown"
 msgstr ""
 
-#: templates/admin/translations.php:185
+#: templates/admin/translations.php:223
 msgid "Status Updated"
 msgstr ""
 
@@ -1466,7 +1629,7 @@ msgstr ""
 msgid "Tablet"
 msgstr ""
 
-#: templates/admin/translations.php:100
+#: templates/admin/translations.php:136
 msgid "Target"
 msgstr ""
 
@@ -1475,12 +1638,12 @@ msgid ""
 "Target the eafl-disclaimer class using CSS for even more customizations."
 msgstr ""
 
-#: templates/admin/translations.php:76
+#: templates/admin/translations.php:106
 msgid "Terms"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:136 
-#: templates/admin/translations.php:78 
+#: includes/admin/class-eafl-manage-modal.php:147 
+#: templates/admin/translations.php:109 
 #: templates/admin/menu/import-export/import-csv-mapping.php:85
 msgid "Text"
 msgstr ""
@@ -1491,6 +1654,10 @@ msgstr ""
 
 #: templates/settings/group-disclaimer.php:39
 msgid "Text Style"
+msgstr ""
+
+#: templates/settings/group-amazon.php:135
+msgid "The Amazon store to use for your affiliate links."
 msgstr ""
 
 #: templates/settings/group-broken-links.php:22
@@ -1508,12 +1675,28 @@ msgstr ""
 msgid "There are no links to export."
 msgstr ""
 
-#: templates/admin/translations.php:130
+#: templates/admin/translations.php:166
 msgid "This feature is only available in"
 msgstr ""
 
-#: templates/admin/translations.php:167
+#: templates/admin/translations.php:120
+msgid "This link is inactive and the HTML code will not be shown."
+msgstr ""
+
+#: templates/admin/translations.php:119
+msgid "This link is inactive. It will be shown as text only."
+msgstr ""
+
+#: templates/admin/translations.php:42
+msgid "This Month"
+msgstr ""
+
+#: templates/admin/translations.php:206
 msgid "This month"
+msgstr ""
+
+#: templates/admin/translations.php:44
+msgid "This Year"
 msgstr ""
 
 #: includes/admin/class-eafl-tools-manager.php:49 
@@ -1537,7 +1720,15 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: templates/admin/translations.php:128
+#: templates/admin/translations.php:28
+msgid "Top Categories"
+msgstr ""
+
+#: templates/admin/translations.php:29
+msgid "Top Links"
+msgstr ""
+
+#: templates/admin/translations.php:164
 msgid "total"
 msgstr ""
 
@@ -1545,7 +1736,7 @@ msgstr ""
 msgid "Try using this if the settings page is not working at all."
 msgstr ""
 
-#: templates/admin/translations.php:158
+#: templates/admin/translations.php:197
 msgid "Type"
 msgstr ""
 
@@ -1553,24 +1744,32 @@ msgstr ""
 msgid "Types to show the disclaimer for"
 msgstr ""
 
-#: templates/admin/translations.php:64
+#: templates/admin/translations.php:93
 msgid "UGC"
 msgstr ""
 
-#: templates/admin/translations.php:28 
+#: templates/admin/translations.php:34 
 #: includes/public/api/class-eafl-api-manage-clicks.php:191
 msgid "Unknown"
 msgstr ""
 
-#: templates/admin/translations.php:164
+#: templates/admin/translations.php:61
+msgid "Unknown Product"
+msgstr ""
+
+#: templates/admin/translations.php:203
 msgid "Unlink replacement. Will use the destination of this link again."
 msgstr ""
 
-#: templates/admin/translations.php:59
+#: templates/settings/group-general.php:35
+msgid "Update Conditional Links through JS"
+msgstr ""
+
+#: templates/admin/translations.php:88
 msgid "Update Status"
 msgstr ""
 
-#: templates/admin/translations.php:182
+#: templates/admin/translations.php:220
 msgid ""
 "Update Status for this link. Bulk Edit can be used to check for multiple "
 "links at once."
@@ -1584,35 +1783,35 @@ msgstr ""
 msgid "Upgrade Easy Affiliate Links"
 msgstr ""
 
-#: templates/admin/translations.php:84 
+#: templates/admin/translations.php:115 
 #: templates/admin/menu/import-export/import-csv-mapping.php:91
 msgid "URL"
 msgstr ""
 
-#: templates/admin/translations.php:141
+#: templates/admin/translations.php:177
 msgid "URL Problems"
 msgstr ""
 
-#: templates/admin/translations.php:144
+#: templates/admin/translations.php:180
 msgid "URL Unreachable"
 msgstr ""
 
-#: templates/admin/translations.php:134
+#: templates/admin/translations.php:170
 msgid "Usage"
 msgstr ""
 
-#: templates/admin/translations.php:103
+#: templates/admin/translations.php:139
 msgid "Use \"sponsored\" attribute"
 msgstr ""
 
-#: templates/admin/translations.php:104
+#: templates/admin/translations.php:140
 msgid "Use \"ugc\" attribute"
 msgstr ""
 
-#: includes/admin/class-eafl-manage-modal.php:161 
-#: includes/admin/class-eafl-manage-modal.php:193 
-#: includes/admin/class-eafl-manage-modal.php:226 
-#: includes/admin/class-eafl-manage-modal.php:258
+#: includes/admin/class-eafl-manage-modal.php:176 
+#: includes/admin/class-eafl-manage-modal.php:208 
+#: includes/admin/class-eafl-manage-modal.php:241 
+#: includes/admin/class-eafl-manage-modal.php:273
 msgid "Use Default"
 msgstr ""
 
@@ -1622,6 +1821,12 @@ msgstr ""
 
 #: templates/settings/group-shortcode.php:18
 msgid "Use Noreferrer"
+msgstr ""
+
+#: templates/settings/group-amazon.php:129
+msgid ""
+"Use the Amazon Product API to easily search for Amazon products to use as "
+"affiliate links."
 msgstr ""
 
 #: templates/settings/group-custom-code.php:18
@@ -1636,7 +1841,15 @@ msgstr ""
 msgid "User ID"
 msgstr ""
 
-#: templates/admin/translations.php:121
+#: templates/admin/translations.php:60
+msgid "View Documentation"
+msgstr ""
+
+#: templates/admin/translations.php:63
+msgid "View on Amazon"
+msgstr ""
+
+#: templates/admin/translations.php:157
 msgid "View Post"
 msgstr ""
 
@@ -1646,11 +1859,11 @@ msgid ""
 "Make a backup first if unsure."
 msgstr ""
 
-#: templates/admin/translations.php:201
+#: templates/admin/translations.php:239
 msgid "We could not find a category with that ID."
 msgstr ""
 
-#: templates/admin/translations.php:137
+#: templates/admin/translations.php:173
 msgid ""
 "We were not able to create this category. Make sure it does not exist yet."
 msgstr ""
@@ -1659,22 +1872,28 @@ msgstr ""
 msgid "Welcome to Easy Affiliate Links"
 msgstr ""
 
-#: templates/settings/group-general.php:21
+#: templates/settings/group-general.php:28
 msgid ""
 "Wether query parameters added to the shortlink should get passed along to "
 "the destination URL."
 msgstr ""
 
-#: templates/admin/translations.php:136
+#: templates/admin/translations.php:172
 msgid "What do you want to be the name of this new category?"
 msgstr ""
 
-#: templates/admin/translations.php:196
+#: templates/admin/translations.php:234
 msgid "What do you want to be the new name for"
 msgstr ""
 
-#: templates/admin/translations.php:198
+#: templates/admin/translations.php:236
 msgid "What is the ID of the category you want the merge"
+msgstr ""
+
+#: templates/settings/group-general.php:36
+msgid ""
+"When enabled, conditional links will be updated through JS to avoid cache "
+"mismatches."
 msgstr ""
 
 #: templates/admin/privacy.php:16
@@ -1691,4 +1910,8 @@ msgstr ""
 msgid ""
 "You might need to disable this to comply with GPDR or other privacy "
 "regulations. The IP adress will then be stored as a hash."
+msgstr ""
+
+#: templates/settings/group-amazon.php:151
+msgid "Your Amazon Product Advertising API details."
 msgstr ""

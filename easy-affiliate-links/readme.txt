@@ -3,8 +3,8 @@ Contributors: BrechtVds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG7KZMGFU325Y
 Tags: affiliate, links, cloaking, shortlink
 Requires at least: 3.5
-Tested up to: 6.8
-Stable tag: 3.7.5
+Tested up to: 6.9
+Stable tag: 3.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,18 @@ We recommend using the free [Google Analytics by Yoast](https://wordpress.org/pl
 5. Powerful overview page to manage, analyze and bulk edit your links
 
 == Changelog ==
+= 3.8.1 =
+* Improvement: Extended settings page
+
+= 3.8.0 =
+* Feature: Set links as "inactive" to temporarily display them as just text
+* Feature: Clone link option on the manage page
+* Feature: Show description when inserting affiliate links
+* Improvement: Setting to exclude affiliate links from regular link searches
+* Improvement: Block Editor iFrame compatibility
+* Fix: Don't show affiliate links that are in the trash
+* Fix: Prevent encoding issues from breaking CSV import
+
 = 3.7.5 =
 * Improvement: WordPress 6.8 compatibility
 * Fix: Loading translations too early
@@ -291,6 +303,12 @@ We recommend using the free [Google Analytics by Yoast](https://wordpress.org/pl
 * Very first version of this plugin
 
 == Upgrade notice ==
+= 3.8.1 =
+Some smaller improvements and fixes
+
+= 3.8.0 =
+Some new features and improvements
+
 = 3.7.5 =
 Update to esnure WordPress 6.8 compatibility
 

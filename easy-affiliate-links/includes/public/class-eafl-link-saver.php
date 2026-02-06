@@ -112,6 +112,7 @@ class EAFL_Link_Saver {
 		if ( isset( $link['url'] ) )			{ $meta['eafl_url'] = $link['url']; }
 		if ( isset( $link['html'] ) )			{ $meta['eafl_html'] = $link['html']; }
 		if ( isset( $link['type'] ) )			{ $meta['eafl_type'] = $link['type']; }
+		if ( isset( $link['active'] ) )			{ $meta['eafl_active'] = $link['active']; }
 		if ( isset( $link['text'] ) )			{ $meta['eafl_text'] = $link['text']; }
 		if ( isset( $link['classes'] ) )		{ $meta['eafl_classes'] = $link['classes']; }
 		if ( isset( $link['status_ignore'] ) )	{ $meta['eafl_status_ignore'] = $link['status_ignore']; }
@@ -134,9 +135,12 @@ class EAFL_Link_Saver {
 			}
 		}
 
-		// Set technical slug for HTML Code links so they don't take over useful slugs.
+		// Set technical slug for HTML Code and Amazon links so they don't take over useful slugs.
 		if ( isset( $link['type'] ) && 'html' === $link['type'] ) {
 			$link['slug'] = 'eafl-html-code-link';
+		}
+		if ( isset( $link['type'] ) && 'amazon' === $link['type'] ) {
+			$link['slug'] = 'eafl-amazon-link';
 		}
 
 		$meta = apply_filters( 'eafl_link_save_meta', $meta, $id, $link );

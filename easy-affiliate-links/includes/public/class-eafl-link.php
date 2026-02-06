@@ -64,6 +64,7 @@ class EAFL_Link {
 		$link['replacement'] = $this->replacement();
 		$link['categories'] = $this->categories();
 		$link['type'] = $this->type();
+		$link['active'] = $this->active();
 		$link['text'] = $this->text();
 		$link['classes'] = $this->classes();
 		$link['url'] = $this->url();
@@ -374,5 +375,14 @@ class EAFL_Link {
 	 */
 	public function status_ignore() {
 		return $this->meta( 'eafl_status_ignore', false );
+	}
+
+	/**
+	 * Get the link active status (yes/no).
+	 *
+	 * @since	3.0.0
+	 */
+	public function active() {
+		return $this->meta( 'eafl_active', 'yes' );
 	}
 }

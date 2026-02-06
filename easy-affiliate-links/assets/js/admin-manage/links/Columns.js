@@ -66,7 +66,7 @@ export default {
                 id: 'actions',
                 headerClassName: 'eafl-admin-table-help-text',
                 sortable: false,
-                width: 70,
+                width: 100,
                 Filter: () => (
                     <div>
                         { __eafl( 'Filter:' ) }
@@ -79,6 +79,17 @@ export default {
                             title={ __eafl( 'Edit Link' ) }
                             onClick={() => {
                                 EAFL_Modal.open('edit', { link: row.original, saveCallback: () => links.refreshData() });
+                            }}
+                        />
+                        <Icon
+                            type="clone"
+                            title={ __eafl( 'Clone Link' ) }
+                            onClick={() => {
+                                // Create a copy of the link data without the ID
+                                const clonedLink = { ...row.original };
+                                delete clonedLink.id;
+                                
+                                EAFL_Modal.open('create', { clone: clonedLink, saveCallback: () => links.refreshData() });
                             }}
                         />
                         <Icon
@@ -99,10 +110,41 @@ export default {
                 width: 65,
                 Filter: (props) => (<TextFilter {...props}/>),
             },{
+                Header: __eafl( 'Active' ),
+                id: 'active',
+                accessor: 'active',
+                width: 100,
+                Filter: ({ filter, onChange }) => (
+                    <select
+                        onChange={event => onChange(event.target.value)}
+                        style={{ width: '100%', fontSize: '1em' }}
+                        value={filter ? filter.value : 'all'}
+                    >
+                        <option value="all">{ __eafl( 'Any Status' ) }</option>
+                        {
+                            eafl_admin_manage_modal.options.active.map((option, index) => (
+                                <option value={option.value} key={index}>{ option.label }</option>
+                            ))
+                        }
+                    </select>
+                ),
+                Cell: row => {
+                    const option = eafl_admin_manage_modal.options.active.find((option) => option.value === row.value );
+                    const isInactive = 'no' === row.value;
+                    return (
+                        <div style={{ color: isInactive ? 'darkred' : 'inherit' }}>
+                            {
+                                option
+                                && option.label
+                            }
+                        </div>
+                    )
+                },
+            },{
                 Header: __eafl( 'Type' ),
                 id: 'type',
                 accessor: 'type',
-                width: 100,
+                width: 120,
                 Filter: ({ filter, onChange }) => (
                     <select
                         onChange={event => onChange(event.target.value)}
@@ -180,7 +222,14 @@ export default {
                 accessor: 'description',
                 width: 300,
                 Filter: (props) => (<TextFilter {...props}/>),
-                Cell: row => he.decode(row.value),
+                Cell: row => {
+                    if (!row.value || row.value.trim() === '') {
+                        return <div></div>;
+                    }
+                    const decodedValue = he.decode(row.value);
+                    const formattedValue = decodedValue.replace(/\n/g, '<br>');
+                    return <div dangerouslySetInnerHTML={{ __html: formattedValue }} />;
+                },
             },{
                 Header: __eafl( 'Replacement' ),
                 id: 'replacement',
@@ -512,6 +561,46 @@ export default {
 
                     return (
                         <div className="eafl-admin-table-html-container"><pre>{ row.value }</pre></div>
+                    )
+                },
+            },{
+                Header: __eafl( 'Amazon Product' ),
+                id: 'amazon_product',
+                accessor: 'amazon_name',
+                width: 350,
+                Filter: (props) => (<TextFilter {...props}/>),
+                Cell: row => {
+                    if ( 'amazon' !== row.original.type ) { return null; }
+                    if ( ! row.original.amazon_asin ) { return null; }
+
+                    return (
+                        <div className="eafl-admin-table-amazon-product">
+                            {
+                                row.original.amazon_image
+                                &&
+                                <div className="eafl-admin-table-amazon-product-image">
+                                    <img
+                                        src={ row.original.amazon_image }
+                                        alt={ row.original.amazon_name }
+                                    />
+                                </div>
+                            }
+                            <div className="eafl-admin-table-amazon-product-details">
+                                <div className="eafl-admin-table-amazon-product-name">
+                                    { he.decode( row.original.amazon_name || '' ) }
+                                </div>
+                                {
+                                    row.original.amazon_price
+                                    &&
+                                    <div className="eafl-admin-table-amazon-product-price">
+                                        { row.original.amazon_price }
+                                    </div>
+                                }
+                                <div className="eafl-admin-table-amazon-product-asin">
+                                    ASIN: { row.original.amazon_asin }
+                                </div>
+                            </div>
+                        </div>
                     )
                 },
             },{

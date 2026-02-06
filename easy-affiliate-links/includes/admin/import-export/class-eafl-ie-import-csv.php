@@ -56,7 +56,45 @@ class EAFL_Import_CSV {
 				$filename = $_FILES['csv']['tmp_name'];
 
 				if ( $filename ) {
-					$links = array_map( 'str_getcsv', file( $_FILES['csv']['tmp_name'] ) );
+					$csv_content = file_get_contents( $_FILES['csv']['tmp_name'] );
+					
+					// Detect and convert encoding to UTF-8
+					$encoding = self::detect_encoding( $csv_content );
+					if ( $encoding && $encoding !== 'UTF-8' ) {
+						$csv_content = mb_convert_encoding( $csv_content, 'UTF-8', $encoding );
+					}
+					
+					// Clean up any remaining invalid UTF-8 sequences
+					$csv_content = mb_convert_encoding( $csv_content, 'UTF-8', 'UTF-8' );
+					
+					// Parse CSV lines
+					$lines = explode( "\n", $csv_content );
+					$links = array_map( function( $line ) { 
+						return str_getcsv( $line, ',', '"', '\\' ); 
+					}, $lines );
+					
+					// Sanitize each field to ensure valid UTF-8
+					$links = array_map( function( $link ) {
+						return array_map( function( $field ) {
+							// Remove or replace invalid UTF-8 sequences
+							$field = mb_convert_encoding( $field, 'UTF-8', 'UTF-8' );
+							
+							// Remove null bytes and other control characters
+							$field = str_replace( array( "\0", "\x00" ), '', $field );
+							
+							// Remove invisible/special Unicode characters (like zero-width spaces, etc.)
+							$field = preg_replace( '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/', '', $field );
+							
+							// Remove other problematic Unicode characters
+							$field = preg_replace( '/[\x{200B}-\x{200D}\x{FEFF}]/u', '', $field );
+							
+							// Trim whitespace
+							$field = trim( $field );
+							
+							return $field;
+						}, $link );
+					}, $links );
+					
 					set_transient( 'eafl_import_links_csv', $links, HOUR_IN_SECONDS );
 					require_once( EAFL_DIR . 'templates/admin/menu/import-export/import-csv-mapping.php' );
 				} else {
@@ -122,9 +160,13 @@ class EAFL_Import_CSV {
 		$link = array();
 
 		foreach ( $mapping as $field => $column ) {
-			if ( false !== $column ) {
+			if ( false !== $column && isset( $csv_link[ $column ] ) ) {
 				$link[ $field ] = $csv_link[ $column ];
 			}
+		}
+
+		if ( empty( $link ) ) {
+			return;
 		}
 
 		// Get IDs from category names, if set.
@@ -176,6 +218,48 @@ class EAFL_Import_CSV {
 		}
 
 		echo esc_html( $link_number ) . '. ' . esc_html( $link['name'] ) . '<br/>';
+	}
+
+	/**
+	 * Detect the encoding of a string.
+	 *
+	 * @since    3.0.0
+	 * @param	 string $string String to detect encoding for.
+	 * @return   string|false Detected encoding or false if detection failed.
+	 */
+	private static function detect_encoding( $string ) {
+		// Remove BOM if present for cleaner detection
+		$clean_string = $string;
+		if ( substr( $string, 0, 3 ) === "\xEF\xBB\xBF" ) {
+			$clean_string = substr( $string, 3 );
+			return 'UTF-8';
+		}
+		
+		// Check for UTF-16 BOM
+		if ( substr( $string, 0, 2 ) === "\xFF\xFE" || substr( $string, 0, 2 ) === "\xFE\xFF" ) {
+			return 'UTF-16';
+		}
+		
+		// Try mb_detect_encoding with more encodings
+		$encodings = array( 'UTF-8', 'ISO-8859-1', 'Windows-1252', 'Windows-1251', 'ISO-8859-15', 'ASCII' );
+		$encoding = mb_detect_encoding( $clean_string, $encodings, true );
+		
+		if ( $encoding ) {
+			return $encoding;
+		}
+		
+		// Check if string is valid UTF-8
+		if ( mb_check_encoding( $clean_string, 'UTF-8' ) ) {
+			return 'UTF-8';
+		}
+		
+		// Try to detect by checking for common Windows-1252 characters
+		if ( preg_match( '/[\x80-\x9F]/', $clean_string ) ) {
+			return 'Windows-1252';
+		}
+		
+		// Default to UTF-8 if we can't detect
+		return 'UTF-8';
 	}
 }
 

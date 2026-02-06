@@ -5,6 +5,7 @@ import '../../css/admin/shared/icon.scss';
 import Tooltip from './Tooltip';
 
 import IconClose from '../../icons/close.svg';
+import IconClone from '../../icons/clone.svg';
 import IconCode from '../../icons/code.svg';
 import IconDelete from '../../icons/delete.svg';
 import IconEdit from '../../icons/edit.svg';
@@ -18,6 +19,7 @@ import IconUnlink from '../../icons/unlink.svg';
  
 const icons = {
     close: IconClose,
+    clone: IconClone,
     code: IconCode,
     delete: IconDelete,
     edit: IconEdit,

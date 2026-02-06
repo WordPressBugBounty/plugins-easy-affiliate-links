@@ -5,7 +5,7 @@ import { __eafl } from 'Shared/Translations';
  
 const Fields = (props) => {
     const selectedCloakOption = eafl_admin_manage_modal.options.cloak.find((option) => option.value === props.link.cloak);
-    const cloakedLink = 'yes' === selectedCloakOption.actual;
+    const cloakedLink = selectedCloakOption && 'yes' === selectedCloakOption.actual;
 
     return (
         <div className="eafl-admin-modal-link-fields">
@@ -44,6 +44,35 @@ const Fields = (props) => {
             <div className="eafl-admin-modal-link-fields-group eafl-admin-modal-link-fields-group-details">
                 <div className="eafl-admin-modal-link-fields-group-header">{ __eafl( 'Details' ) }</div>
                 <div className="eafl-admin-modal-link-fields">
+                    <Field
+                        id="active"
+                        label={ __eafl( 'Affiliate Link Active' ) }
+                        type="dropdown"
+                        value={props.link.active}
+                        onChange={(value) => {
+                            props.onLinkChange('active', value);
+                        }}
+                        options={eafl_admin_manage_modal.options.active}
+                    />
+                    {
+                        'no' === props.link.active
+                        &&
+                        <Field
+                            id="active_description"
+                            label={ '' }
+                            type="custom"
+                        >
+                            <div style={{ color: 'darkred' }}>
+                                {
+                                    ( 'text' === props.link.type || 'amazon' === props.link.type )
+                                    ?
+                                    __eafl( 'This link is inactive. It will be shown as text only.' )
+                                    :
+                                    __eafl( 'This link is inactive and the HTML code will not be shown.' )
+                                }
+                            </div>
+                        </Field>
+                    }
                     <Field
                         id="type"
                         label={ __eafl( 'Link Type' ) }
@@ -133,10 +162,42 @@ const Fields = (props) => {
                             </Field>
                         </Fragment>
                     }
+                    {
+                        'amazon' === props.link.type
+                        &&
+                        <Fragment>
+                            <Field
+                                id="amazon"
+                                hook="amazon"
+                                label={ __eafl( 'Amazon Product' ) }
+                                type="custom"
+                                link={ props.link }
+                                onSelectProduct={ (amazonData) => {
+                                    // Pass all Amazon data as a single update to avoid state batching issues.
+                                    props.onLinkChange(amazonData);
+                                } }
+                            >
+                                <p>{ __eafl( 'Amazon Product links are available in Easy Affiliate Links Premium.' ) } <a href="https://bootstrapped.ventures/easy-affiliate-links/amazon-product-api-links/" target="_blank">{ __eafl( 'Learn more' ) }</a>!</p>
+                            </Field>
+                            <Field
+                                id="conditional"
+                                hook="conditional"
+                                label={ __eafl( 'Conditional Amazon Products' ) }
+                                type="custom"
+                                conditional={ props.link.conditional }
+                                linkType={ props.link.type }
+                                onChange={ (value) => {
+                                    props.onLinkChange('conditional', value);
+                                } }
+                            >
+                                <p>{ __eafl( 'Available in Easy Affiliate Links Premium.' ) } <a href="https://bootstrapped.ventures/easy-affiliate-links/conditional-links/" target="_blank">{ __eafl( 'Learn more' ) }</a>!</p>
+                            </Field>
+                        </Fragment>
+                    }
                 </div>
             </div>
             {
-                'text' === props.link.type
+                ( 'text' === props.link.type || 'amazon' === props.link.type )
                 &&
                 <Fragment>
                     <div className="eafl-admin-modal-link-fields-group eafl-admin-modal-link-fields-group-shortcode">
@@ -174,16 +235,20 @@ const Fields = (props) => {
                                     props.onLinkChange('target', value);
                                 }}
                             />
-                            <Field
-                                id="redirect_type"
-                                label={ __eafl( 'Redirect Type' ) }
-                                type="radio"
-                                options={eafl_admin_manage_modal.options.redirect_type}
-                                value={props.link.redirect_type}
-                                onChange={(value) => {
-                                    props.onLinkChange('redirect_type', value);
-                                }}
-                            />
+                            {
+                                'text' === props.link.type
+                                &&
+                                <Field
+                                    id="redirect_type"
+                                    label={ __eafl( 'Redirect Type' ) }
+                                    type="radio"
+                                    options={eafl_admin_manage_modal.options.redirect_type}
+                                    value={props.link.redirect_type}
+                                    onChange={(value) => {
+                                        props.onLinkChange('redirect_type', value);
+                                    }}
+                                />
+                            }
                             <div className="eafl-admin-modal-link-field-container eafl-admin-modal-link-field-container-nofollow">
                                 <Field
                                     id="nofollow"

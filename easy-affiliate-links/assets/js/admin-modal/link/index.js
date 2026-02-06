@@ -44,10 +44,20 @@ export default class Link extends Component {
             }
         }
 
+        let originalLink = JSON.parse( JSON.stringify( link ) );
+
+        // If cloning, make link identical except for the ID and set originalLink to empty.
+        if ( 'create' === props.mode && props.args.hasOwnProperty( 'clone' ) ) {
+            link = JSON.parse( JSON.stringify( props.args.clone ) );
+            delete link.id;
+
+            originalLink = {};
+        }
+
         // Set initial state.
         this.state = {
             link,
-            originalLink: JSON.parse( JSON.stringify( link ) ),
+            originalLink,
             saveCallback: props.args.hasOwnProperty( 'saveCallback' ) ? props.args.saveCallback : false,
             savingChanges: false,
             loadingLink,
@@ -63,7 +73,14 @@ export default class Link extends Component {
     onLinkChange(field, value) {
         let newLink = JSON.parse( JSON.stringify( this.state.link ) );
 
-        newLink[field] = value;
+        // Support passing an object of multiple field changes.
+        if ( 'object' === typeof field && null !== field ) {
+            Object.keys( field ).forEach( ( key ) => {
+                newLink[ key ] = field[ key ];
+            });
+        } else {
+            newLink[field] = value;
+        }
 
         this.setState({
             link: newLink,

@@ -73,6 +73,7 @@ class EAFL_Manage_Modal {
 			'link_preview' => site_url( '/' . EAFL_Settings::get( 'shortlink_slug' ) . '/' ),
 			'options' => array(
 				'type' => self::get_type_options(),
+				'active' => self::get_active_options(),
 				'cloak' => self::get_cloak_options(),
 				'target' => self::get_target_options(),
 				'redirect_type' => self::get_redirect_type_options(),
@@ -111,6 +112,7 @@ class EAFL_Manage_Modal {
 			'decription' => '',
 			'categories' => array(),
 			'type' => 'text',
+			'active' => 'yes',
 			'text' => array( '' ),
 			'html' => '',
 			'classes' => '',
@@ -121,6 +123,15 @@ class EAFL_Manage_Modal {
 			'nofollow' => 'default',
 			'sponsored' => EAFL_Settings::get( 'default_sponsored' ),
 			'ugc' => EAFL_Settings::get( 'default_ugc' ),
+			// Amazon Product fields.
+			'amazon_asin' => '',
+			'amazon_name' => '',
+			'amazon_image' => '',
+			'amazon_image_width' => 0,
+			'amazon_image_height' => 0,
+			'amazon_link' => '',
+			'amazon_price' => '',
+			'amazon_updated' => 0,
 		) );
 	}
 
@@ -138,6 +149,10 @@ class EAFL_Manage_Modal {
 			array(
 				'value' => 'html',
 				'label' => __( 'HTML Code', 'easy-affiliate-links' ),
+			),
+			array(
+				'value' => 'amazon',
+				'label' => __( 'Amazon Product', 'easy-affiliate-links' ),
 			),
 		);
 	}
@@ -269,6 +284,24 @@ class EAFL_Manage_Modal {
 		}
 
 		return $options;
+	}
+
+	/**
+	 * Get all active options.
+	 *
+	 * @since    3.0.0
+	 */
+	public static function get_active_options() {
+		return array(
+			array(
+				'value' => 'yes',
+				'label' => __( 'Active', 'easy-affiliate-links' ),
+			),
+			array(
+				'value' => 'no',
+				'label' => __( 'Inactive', 'easy-affiliate-links' ),
+			),
+		);
 	}
 }
 

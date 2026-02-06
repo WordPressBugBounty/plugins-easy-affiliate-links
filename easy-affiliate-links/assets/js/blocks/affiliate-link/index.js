@@ -36,6 +36,7 @@ registerBlockType( 'easy-affiliate-links/easy-affiliate-link', {
     icon: 'admin-links',
     keywords: [ 'eafl', 'affiliate', 'link' ],
     category: 'common',
+    apiVersion: 3,
     supports: {
         html: false,
     },
@@ -113,7 +114,8 @@ registerBlockType( 'easy-affiliate-links/easy-affiliate-link', {
                             } }
 						/>
                         {
-                            'text' === attributes.type
+                            ( 'text' === attributes.type
+                            || 'amazon' === attributes.type )
                             &&
                             <ToolbarButton
                                 icon="edit"

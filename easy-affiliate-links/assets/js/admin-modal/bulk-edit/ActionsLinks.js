@@ -9,6 +9,7 @@ const ActionsLink = (props) => {
     const actionOptions = [
         { value: 'add-categories', label: __eafl( 'Add Categories' ), default: [] },
         { value: 'remove-categories', label: __eafl( 'Remove Categories' ), default: [] },
+        { value: 'change-active', label: __eafl( 'Change Active Status' ), default: 'yes' },
         { value: 'change-cloaking', label: __eafl( 'Change Cloaking' ), default: 'default' },
         { value: 'change-target', label: __eafl( 'Change Target' ), default: 'default' },
         { value: 'change-redirect-type', label: __eafl( 'Change Redirect Type' ), default: 'default' },
@@ -70,6 +71,23 @@ const ActionsLink = (props) => {
                                     const newAction = {
                                         ...props.action,
                                         options: categories,
+                                    }
+                
+                                    props.onActionChange(newAction);
+                                }}
+                            />
+                        }
+                        {
+                            'change-active' === selectedAction
+                            &&
+                            <FieldRadio
+                                id="active"
+                                options={eafl_admin_manage_modal.options.active}
+                                value={props.action.options}
+                                onChange={(value) => {
+                                    const newAction = {
+                                        ...props.action,
+                                        options: value,
                                     }
                 
                                     props.onActionChange(newAction);

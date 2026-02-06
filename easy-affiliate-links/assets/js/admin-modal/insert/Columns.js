@@ -1,10 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import he from 'he';
  
 import CopyToClipboardIcon from '../../shared/CopyToClipboardIcon';
 import TextFilter from '../../admin-manage/general/TextFilter';
 import Icon from 'Shared/Icon';
 import { __eafl } from 'Shared/Translations';
+
+// Expandable description cell component
+class ExpandableDescription extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            expanded: false
+        };
+    }
+
+    toggleExpanded = () => {
+        this.setState(prevState => ({
+            expanded: !prevState.expanded
+        }));
+    }
+
+    render() {
+        const { value } = this.props;
+        const { expanded } = this.state;
+        
+        if (!value || value.trim() === '') {
+            return <div></div>;
+        }
+
+        const decodedValue = he.decode(value);
+        // Replace line breaks with <br> tags for proper display
+        const formattedValue = decodedValue.replace(/\n/g, '<br>');
+        const shouldTruncate = decodedValue.length > 50; // Show expand button if text is longer than 50 chars
+        
+        return (
+            <div className="eafl-expandable-description">
+                <div 
+                    className={`eafl-description-content ${expanded ? 'expanded' : 'collapsed'}`}
+                    onClick={shouldTruncate ? this.toggleExpanded : undefined}
+                    style={{ cursor: shouldTruncate ? 'pointer' : 'default' }}
+                    title={shouldTruncate ? __eafl('Click for more') : ''}
+                    dangerouslySetInnerHTML={{
+                        __html: expanded ? formattedValue : (shouldTruncate ? formattedValue.substring(0, 50) + '...' : formattedValue)
+                    }}
+                />
+            </div>
+        );
+    }
+}
 
 export default {
     selects: [],
@@ -63,6 +107,13 @@ export default {
             accessor: 'name',
             width: 250,
             Filter: (props) => (<TextFilter {...props}/>),
+        },{
+            Header: __eafl( 'Description' ),
+            id: 'description',
+            accessor: 'description',
+            width: 200,
+            Filter: (props) => (<TextFilter {...props}/>),
+            Cell: row => <ExpandableDescription value={row.value} />,
         },{
             Header: __eafl( 'Text' ),
             id: 'text',

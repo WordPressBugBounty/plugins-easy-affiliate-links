@@ -99,6 +99,10 @@ class EAFL_API_Manage_Links {
 		// Order.
 		$args['order'] = $sorted[0]['desc'] ? 'DESC' : 'ASC';
 		switch( $sorted[0]['id'] ) {
+			case 'active':
+				$args['orderby'] = 'meta_value';
+				$args['meta_key'] = 'eafl_active';
+				break;
 			case 'type':
 				$args['orderby'] = 'meta_value';
 				$args['meta_key'] = 'eafl_type';
@@ -164,6 +168,10 @@ class EAFL_API_Manage_Links {
 				$args['orderby'] = 'meta_value';
 				$args['meta_key'] = 'eafl_conditional';
 				break;
+			case 'amazon_product':
+				$args['orderby'] = 'meta_value';
+				$args['meta_key'] = 'eafl_amazon_name';
+				break;
 			case 'status':
 				$args['orderby'] = 'meta_value';
 				$args['meta_key'] = 'eafl_status_type';
@@ -187,6 +195,32 @@ class EAFL_API_Manage_Links {
 				switch( $filter['id'] ) {
 					case 'id':
 						$args['eafl_search_id'] = $value;
+						break;
+					case 'active':
+						if ( 'all' !== $value ) {
+							if ( 'yes' === $value ) {
+								// Show active links (explicitly set to 'yes' OR missing meta field which defaults to 'yes')
+								$args['meta_query'][] = array(
+									'relation' => 'OR',
+									array(
+										'key' => 'eafl_active',
+										'compare' => '=',
+										'value' => 'yes',
+									),
+									array(
+										'key' => 'eafl_active',
+										'compare' => 'NOT EXISTS',
+									),
+								);
+							} else {
+								// Show inactive links (explicitly set to 'no')
+								$args['meta_query'][] = array(
+									'key' => 'eafl_active',
+									'compare' => '=',
+									'value' => 'no',
+								);
+							}
+						}
 						break;
 					case 'type':
 						if ( 'all' !== $value ) {
@@ -342,6 +376,23 @@ class EAFL_API_Manage_Links {
 								'key' => 'eafl_conditional',
 								'compare' => 'LIKE',
 								'value' => $value,
+							);
+						}
+						break;
+					case 'amazon_product':
+						if ( $value ) {
+							$args['meta_query'][] = array(
+								'relation' => 'OR',
+								array(
+									'key' => 'eafl_amazon_name',
+									'compare' => 'LIKE',
+									'value' => $value,
+								),
+								array(
+									'key' => 'eafl_amazon_asin',
+									'compare' => 'LIKE',
+									'value' => $value,
+								),
 							);
 						}
 						break;
@@ -564,6 +615,9 @@ class EAFL_API_Manage_Links {
 						break;
 					case 'add-categories':
 						$link_data['categories'] = array_merge( $link_data['categories'], $action['options'] );
+						break;
+					case 'change-active':
+						$link_data['active'] = $action['options'];
 						break;
 					case 'change-cloaking':
 						$link_data['cloak'] = $action['options'];

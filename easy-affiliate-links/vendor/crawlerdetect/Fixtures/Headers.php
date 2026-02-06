@@ -16,7 +16,7 @@ class CD_Headers extends CD_AbstractProvider
      *
      * @var array
      */
-    protected $data = array(
+    protected $data = [
         // The default User-Agent string.
         'HTTP_USER_AGENT',
         // Header can occur on devices using Opera Mini.
@@ -31,5 +31,7 @@ class CD_Headers extends CD_AbstractProvider
         // Sometimes, bots (especially Google) use a genuine user agent, but fill this header in with their email address
         'HTTP_FROM',
         'HTTP_X_SCANNER', // Seen in use by Netsparker
-    );
+        // Observed that Facebook will omit identifying itself in User Agent headers but will persist HeadlessChrome in this header for mobile requests
+        'HTTP_SEC_CH_UA',
+    ];
 }

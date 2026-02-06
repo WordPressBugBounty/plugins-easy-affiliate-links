@@ -59,6 +59,7 @@ registerBlockType('easy-affiliate-links/easy-affiliate-link', {
   icon: 'admin-links',
   keywords: ['eafl', 'affiliate', 'link'],
   category: 'common',
+  apiVersion: 3,
   supports: {
     html: false
   },
@@ -134,7 +135,7 @@ registerBlockType('easy-affiliate-links/easy-affiliate-link', {
           }
         });
       }
-    }), 'text' === attributes.type && /*#__PURE__*/React.createElement(ToolbarButton, {
+    }), ('text' === attributes.type || 'amazon' === attributes.type) && /*#__PURE__*/React.createElement(ToolbarButton, {
       icon: "edit",
       label: __('Edit Link Text'),
       onClick: function onClick() {
