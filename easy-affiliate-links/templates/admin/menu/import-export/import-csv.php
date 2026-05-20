@@ -18,5 +18,5 @@ $url = add_query_arg( 'sub', 'import_csv', admin_url( 'admin.php?page=eafl_impor
 <form method="POST" action="<?php echo esc_url( $url ); ?>" enctype="multipart/form-data">
 	<?php wp_nonce_field( 'eafl_import', 'eafl_import' ); ?>
 	<input type="file" name="csv">
-	<?php submit_button( __( 'Match CSV Columns...', 'easy-affiliate-links' ) ); ?>
+	<?php submit_button( __( 'Match CSV Columns...', 'easy-affiliate-links' ), 'button button-primary button-compact' ); ?>
 </form>

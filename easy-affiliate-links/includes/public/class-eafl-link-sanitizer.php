@@ -34,8 +34,8 @@ class EAFL_Link_Sanitizer {
 		if ( isset( $link['slug'] ) ) 			{ $sanitized_link['slug'] = sanitize_title( $link['slug'] ); }
 		if ( isset( $link['classes'] ) ) 		{ $sanitized_link['classes'] = sanitize_text_field( $link['classes'] ); }
 
-		// Leave these fields intact to make sure they are identical, expect for whitespace at the start.
-		if ( isset( $link['url'] ) ) 			{ $sanitized_link['url'] = ltrim( $link['url'] ); }
+		// Leave these fields intact to make sure they are identical, except for surrounding whitespace.
+		if ( isset( $link['url'] ) ) 			{ $sanitized_link['url'] = trim( $link['url'] ); }
 		if ( isset( $link['html'] ) ) 			{ $sanitized_link['html'] = self::sanitize_html( $link['html'] ); }
 
 		// Boolean fields.

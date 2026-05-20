@@ -31,7 +31,7 @@ class Easy_Affiliate_Links {
 	 * @since    2.0.0
 	 */
 	private function define_constants() {
-		define( 'EAFL_VERSION', '3.8.1' );
+		define( 'EAFL_VERSION', '3.9.0' );
 		define( 'EAFL_PREMIUM_VERSION_REQUIRED', '3.1.0' );
 		define( 'EAFL_POST_TYPE', 'easy_affiliate_link' );
 		define( 'EAFL_DIR', plugin_dir_path( dirname( __FILE__ ) ) );
@@ -88,6 +88,7 @@ class Easy_Affiliate_Links {
 		require_once( EAFL_DIR . 'includes/public/class-eafl-clicks.php' );
 		require_once( EAFL_DIR . 'includes/public/class-eafl-clicks-database.php' );
 		require_once( EAFL_DIR . 'includes/public/class-eafl-compatibility.php' );
+		require_once( EAFL_DIR . 'includes/public/class-eafl-cron.php' );
 		require_once( EAFL_DIR . 'includes/public/class-eafl-disclaimer.php' );
 		require_once( EAFL_DIR . 'includes/public/class-eafl-link.php' );
 		require_once( EAFL_DIR . 'includes/public/class-eafl-link-manager.php' );

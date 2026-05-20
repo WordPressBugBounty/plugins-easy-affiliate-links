@@ -99,7 +99,7 @@ class EAFL_Assets {
 	 */
 	public static function block_assets() {
 		wp_enqueue_style( 'eafl-blocks', EAFL_URL . 'dist/blocks.css', array(), EAFL_VERSION, 'all' );
-		wp_enqueue_script( 'eafl-blocks', EAFL_URL . 'dist/blocks.js', array( 'wp-i18n', 'wp-editor', 'wp-element', 'wp-blocks', 'wp-components', 'wp-format-library'  ), EAFL_VERSION );
+		wp_enqueue_script( 'eafl-blocks', EAFL_URL . 'dist/blocks.js', array( 'wp-i18n', 'wp-editor', 'wp-element', 'wp-blocks', 'wp-components', 'wp-format-library', 'wp-hooks', 'wp-compose'  ), EAFL_VERSION );
 	}
 
 	/**

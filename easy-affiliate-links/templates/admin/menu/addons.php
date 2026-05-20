@@ -28,7 +28,7 @@
 			<li>...and more coming up!</li>
 		</ul>
 		<div class="eafl-addons-button-container">
-			<a class="button button-primary" href="https://bootstrapped.ventures/easy-affiliate-links/get-the-plugin/" target="_blank">Learn More</a>
+			<a class="button button-primary button-compact" href="https://bootstrapped.ventures/easy-affiliate-links/get-the-plugin/" target="_blank">Learn More</a>
 		</div>
 		<?php endif; // Premium active. ?>
 	</div>
@@ -47,7 +47,7 @@
 				<input type="email" id="fields[email]" name="fields[email]" value="<?php echo esc_attr( $email ); ?>" style="width: 300px; margin: 5px 0 10px;" />
 			</div>
 			<div>
-				<input type="submit" name="submit" value="Keep me in the loop!" class="button button-primary" data-drip-attribute="sign-up-button" />
+				<input type="submit" name="submit" value="Keep me in the loop!" class="button button-primary button-compact" data-drip-attribute="sign-up-button" />
 			</div>
 		</form>
 	</div>

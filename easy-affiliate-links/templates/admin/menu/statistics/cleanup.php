@@ -80,6 +80,6 @@
 				</tr>
 			</tbody>
 		</table>
-		<?php submit_button( __( 'Clean Up Clicks', 'easy-affiliate-links' ) ); ?>
+		<?php submit_button( __( 'Clean Up Clicks', 'easy-affiliate-links' ), 'button button-primary button-compact' ); ?>
 	</form>
 </div>

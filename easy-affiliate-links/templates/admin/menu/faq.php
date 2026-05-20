@@ -57,7 +57,7 @@ $img_dir = EAFL_URL . 'assets/images/faq';
 					<input type="text" id="fields[website]" name="fields[website]" value="<?php echo esc_attr( $website ); ?>" />
 			</div>
 		<div>
-			<input type="submit" name="submit" value="I want you to help improve the plugin!" class="button button-primary" data-drip-attribute="sign-up-button" />
+			<input type="submit" name="submit" value="I want you to help improve the plugin!" class="button button-primary button-compact" data-drip-attribute="sign-up-button" />
 		</div>
 	</form>
 </div>

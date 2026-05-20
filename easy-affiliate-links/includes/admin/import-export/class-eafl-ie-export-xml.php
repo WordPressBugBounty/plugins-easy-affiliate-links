@@ -74,7 +74,7 @@ class EAFL_Export_XML {
 
 				echo '<form id="exportLinks" action="' . EAFL_URL . 'templates/admin/menu/import-export/export-xml.php" method="post">';
 				echo '<input type="hidden" name="exportLinks" value="' . base64_encode( $xml ) . '"/>';
-				submit_button( __( 'Download XML', 'easy-affiliate-links' ) );
+				submit_button( __( 'Download XML', 'easy-affiliate-links' ), 'button button-primary button-compact' );
 				echo '</form>';
 			}
 		}

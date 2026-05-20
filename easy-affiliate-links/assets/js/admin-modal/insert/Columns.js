@@ -140,7 +140,9 @@ export default {
                 return (
                     <div className="eafl-admin-table-insert-container">
                         <button
-                            className="button button-primary eafl-admin-table-insert-button"
+                            className="button button-primary button-compact eafl-admin-table-insert-button"
+                            disabled={ links.state.excludeHtmlLinks && 'html' === row.original.type }
+                            title={ links.state.excludeHtmlLinks && 'html' === row.original.type ? __eafl( 'Affiliate HTML Code links cannot be used here.' ) : __eafl( 'Insert Link' ) }
                             onClick={() => {
                                 if ( 'html' === row.original.type ) {
                                     links.insertLink( row.original, `${ __eafl( 'Affiliate HTML Code' ) } "${ row.original.name ? row.original.name : row.original.id }"` );

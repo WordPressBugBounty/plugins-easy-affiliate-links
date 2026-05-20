@@ -75,7 +75,7 @@ class EAFL_Export_CSV {
 
 				echo '<form id="exportLinks" action="' . EAFL_URL . 'templates/admin/menu/import-export/export-csv.php" method="post">';
 				echo '<input type="hidden" name="exportLinks" value="' . base64_encode( $csv ) . '"/>';
-				submit_button( __( 'Download CSV', 'easy-affiliate-links' ) );
+				submit_button( __( 'Download CSV', 'easy-affiliate-links' ), 'button button-primary button-compact' );
 				echo '</form>';
 			}
 		}

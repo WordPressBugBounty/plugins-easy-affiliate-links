@@ -396,6 +396,11 @@ class EAFL_API_Manage_Links {
 							);
 						}
 						break;
+					case 'amazon_status':
+						if ( 'all' !== $value ) {
+							$args['eafl_amazon_status_filter'] = sanitize_text_field( $value );
+						}
+						break;
 					case 'categories':
 						if ( 'all' !== $value ) {
 							if ( 'none' === $value ) {
@@ -546,7 +551,98 @@ class EAFL_API_Manage_Links {
 			$where .= ' AND ' . $wpdb->posts . '.post_name LIKE \'%' . esc_sql( like_escape( $slug_search ) ) . '%\'';
 		}
 
+		$amazon_status_filter = $wp_query->get( 'eafl_amazon_status_filter' );
+		if ( $amazon_status_filter ) {
+			$where .= self::api_manage_links_amazon_status_where( $amazon_status_filter );
+		}
+
 		return $where;
+	}
+
+	/**
+	 * Get custom WHERE clause for Amazon product status filtering.
+	 *
+	 * @since    3.8.2
+	 * @param    string $filter Amazon status filter.
+	 */
+	public static function api_manage_links_amazon_status_where( $filter ) {
+		global $wpdb;
+
+		$filter = sanitize_text_field( $filter );
+
+		$is_amazon_link = "EXISTS (
+			SELECT 1 FROM {$wpdb->postmeta} eafl_amazon_type
+			WHERE eafl_amazon_type.post_id = {$wpdb->posts}.ID
+			AND eafl_amazon_type.meta_key = 'eafl_type'
+			AND eafl_amazon_type.meta_value = 'amazon'
+		)";
+
+		$main_product_exists = "EXISTS (
+			SELECT 1 FROM {$wpdb->postmeta} eafl_main_asin
+			WHERE eafl_main_asin.post_id = {$wpdb->posts}.ID
+			AND eafl_main_asin.meta_key = 'eafl_amazon_asin'
+			AND eafl_main_asin.meta_value <> ''
+		)";
+
+		$conditional_product_exists = "EXISTS (
+			SELECT 1 FROM {$wpdb->postmeta} eafl_conditional_asin
+			WHERE eafl_conditional_asin.post_id = {$wpdb->posts}.ID
+			AND eafl_conditional_asin.meta_key = 'eafl_conditional'
+			AND eafl_conditional_asin.meta_value REGEXP 's:[0-9]+:\"amazon_asin\";s:[1-9][0-9]*:\"'
+		)";
+
+		if ( 'empty' === $filter ) {
+			return " AND {$is_amazon_link} AND NOT {$main_product_exists} AND NOT {$conditional_product_exists}";
+		}
+
+		$statuses = array();
+		if ( 'notification_statuses' === $filter ) {
+			$statuses = class_exists( 'EAFLP_Amazon_Status_Notifications' ) ? EAFLP_Amazon_Status_Notifications::get_notification_statuses() : array();
+		} elseif ( 'not_in_stock' === $filter ) {
+			$valid_statuses = class_exists( 'EAFLP_Amazon_Status_Notifications' ) ? EAFLP_Amazon_Status_Notifications::get_valid_statuses() : array( 'AVAILABLE_DATE', 'IN_STOCK', 'IN_STOCK_SCARCE', 'LEADTIME', 'OUT_OF_STOCK', 'PREORDER', 'UNAVAILABLE', 'UNKNOWN', 'NOT_FOUND' );
+			$statuses = array_values( array_diff( $valid_statuses, array( 'IN_STOCK' ) ) );
+		} else {
+			$valid_statuses = class_exists( 'EAFLP_Amazon_Status_Notifications' ) ? EAFLP_Amazon_Status_Notifications::get_valid_statuses() : array( 'AVAILABLE_DATE', 'IN_STOCK', 'IN_STOCK_SCARCE', 'LEADTIME', 'OUT_OF_STOCK', 'PREORDER', 'UNAVAILABLE', 'UNKNOWN', 'NOT_FOUND' );
+			if ( in_array( $filter, $valid_statuses, true ) ) {
+				$statuses = array( $filter );
+			}
+		}
+
+		if ( empty( $statuses ) ) {
+			return ' AND 1=0';
+		}
+
+		$placeholders = implode( ',', array_fill( 0, count( $statuses ), '%s' ) );
+		$main_sql = "(
+			{$main_product_exists}
+			AND EXISTS (
+				SELECT 1 FROM {$wpdb->postmeta} eafl_main_status
+				WHERE eafl_main_status.post_id = {$wpdb->posts}.ID
+				AND eafl_main_status.meta_key = 'eafl_amazon_status'
+				AND eafl_main_status.meta_value IN ({$placeholders})
+			)
+		)";
+		$main_sql = call_user_func_array( array( $wpdb, 'prepare' ), array_merge( array( $main_sql ), $statuses ) );
+
+		$conditional_likes = array();
+		$conditional_args = array();
+		foreach ( $statuses as $status ) {
+			$conditional_likes[] = 'eafl_conditional_status.meta_value LIKE %s';
+			$conditional_args[] = '%' . $wpdb->esc_like( '"amazon_status";' ) . '%' . $wpdb->esc_like( '"' . $status . '"' ) . '%';
+		}
+
+		$conditional_sql = "(
+			{$conditional_product_exists}
+			AND EXISTS (
+				SELECT 1 FROM {$wpdb->postmeta} eafl_conditional_status
+				WHERE eafl_conditional_status.post_id = {$wpdb->posts}.ID
+				AND eafl_conditional_status.meta_key = 'eafl_conditional'
+				AND (" . implode( ' OR ', $conditional_likes ) . ")
+			)
+		)";
+		$conditional_sql = call_user_func_array( array( $wpdb, 'prepare' ), array_merge( array( $conditional_sql ), $conditional_args ) );
+
+		return " AND {$is_amazon_link} AND ( {$main_sql} OR {$conditional_sql} )";
 	}
 
 	/**

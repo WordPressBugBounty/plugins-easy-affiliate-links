@@ -30,6 +30,7 @@ export default class Insert extends Component {
             columns: Columns.getColumns( this ),
             insertCallback: props.args.hasOwnProperty( 'insertCallback' ) ? props.args.insertCallback : false,
             selectedText,
+            excludeHtmlLinks: props.args.hasOwnProperty( 'excludeHtmlLinks' ) ? props.args.excludeHtmlLinks : false,
         }
 
         // Bind functions.
@@ -87,6 +88,11 @@ export default class Insert extends Component {
     }
 
     insertLink( link, text ) {
+        if ( this.state.excludeHtmlLinks && 'html' === link.type ) {
+            alert( __eafl( 'Affiliate HTML Code links cannot be used here.' ) );
+            return;
+        }
+
         if ( 'function' === typeof this.state.insertCallback ) {
             this.state.insertCallback( link, text );
         }
@@ -103,7 +109,7 @@ export default class Insert extends Component {
                     onCloseModal={ this.props.maybeCloseModal }
                 >
                     <button
-                        className="button button-primary"
+                        className="button button-primary button-compact"
                         onClick={() => {
                             this.props.maybeCloseModal(() => {
                                 const defaults = this.state.selectedText ? { text: [this.state.selectedText] } : {};

@@ -98,6 +98,63 @@
     }
 }
 
+.eafl-admin-table-amazon-status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.eafl-admin-table-amazon-status-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1.2;
+
+    .eafl-admin-table-amazon-status-label {
+        color: #666;
+        font-size: 11px;
+        min-width: 80px;
+    }
+
+    .eafl-admin-table-amazon-status-type {
+        border-radius: 3px;
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1;
+        padding: 3px 5px;
+        text-transform: uppercase;
+    }
+
+    .eafl-admin-table-amazon-status-link {
+        display: inline-flex;
+        line-height: 1;
+        text-decoration: none;
+    }
+
+    .eafl-admin-table-amazon-status-none {
+        color: #666;
+        font-weight: 600;
+    }
+
+    &.status-in-stock .eafl-admin-table-amazon-status-type {
+        background: #e6f4ea;
+        color: #1e7e34;
+    }
+
+    &.status-out-of-stock .eafl-admin-table-amazon-status-type,
+    &.status-unavailable .eafl-admin-table-amazon-status-type,
+    &.status-not-found .eafl-admin-table-amazon-status-type {
+        background: #fbeaea;
+        color: #b42318;
+    }
+
+    &.status-preorder .eafl-admin-table-amazon-status-type,
+    &.status-unknown .eafl-admin-table-amazon-status-type {
+        background: #fff4d6;
+        color: #8a5a00;
+    }
+}
+
 .eafl-admin-table-condition-container {
     display: flex;
 

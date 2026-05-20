@@ -166,6 +166,16 @@ class EAFL_Tools_Find_Relations {
 		$content = $post->post_content;
 		$link_ids = array();
 
+		// Find EAFL links stored as metadata on core Button blocks.
+		$button_link_ids = self::find_core_button_link_ids( $post->post_content );
+		foreach ( $button_link_ids as $id => $occurrences ) {
+			if ( ! isset( $link_ids[ $id ] ) ) {
+				$link_ids[ $id ] = 0;
+			}
+
+			$link_ids[ $id ] += $occurrences;
+		}
+
 		// WPRM Integration.
 		if ( 'wprm_recipe' === $post->post_type ) {
 			// Search recipe fields.
@@ -257,6 +267,50 @@ class EAFL_Tools_Find_Relations {
 			);
 	
 			EAFL_Relations_Database::add( $relation );
+		}
+	}
+
+	/**
+	 * Find EAFL links stored on core Button block attributes.
+	 *
+	 * @since	3.4.0
+	 * @param	string $content Post content.
+	 */
+	private static function find_core_button_link_ids( $content ) {
+		$link_ids = array();
+
+		if ( function_exists( 'parse_blocks' ) ) {
+			self::find_core_button_link_ids_in_blocks( parse_blocks( $content ), $link_ids );
+		}
+
+		return $link_ids;
+	}
+
+	/**
+	 * Recursively find EAFL links stored on core Button blocks.
+	 *
+	 * @since	3.4.0
+	 * @param	array $blocks   Parsed blocks.
+	 * @param	array $link_ids Current link IDs, passed by reference.
+	 */
+	private static function find_core_button_link_ids_in_blocks( $blocks, &$link_ids ) {
+		foreach ( $blocks as $block ) {
+			if ( isset( $block['blockName'] ) && 'core/button' === $block['blockName'] ) {
+				$atts = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
+				$id = isset( $atts['eaflId'] ) ? intval( $atts['eaflId'] ) : 0;
+
+				if ( $id ) {
+					if ( ! isset( $link_ids[ $id ] ) ) {
+						$link_ids[ $id ] = 0;
+					}
+
+					$link_ids[ $id ]++;
+				}
+			}
+
+			if ( ! empty( $block['innerBlocks'] ) ) {
+				self::find_core_button_link_ids_in_blocks( $block['innerBlocks'], $link_ids );
+			}
 		}
 	}
 }

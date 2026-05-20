@@ -99,5 +99,5 @@ $url = add_query_arg( 'sub', 'import_csv', admin_url( 'admin.php?page=eafl_impor
 			<?php echo $column_select_options; ?>
 		</select>
 	</div>
-	<?php submit_button( __( 'Import CSV', 'easy-affiliate-links' ) ); ?>
+	<?php submit_button( __( 'Import CSV', 'easy-affiliate-links' ), 'button button-primary button-compact' ); ?>
 </form>

@@ -161,14 +161,14 @@ export default class Link extends Component {
                     savingChanges={ this.state.savingChanges }
                 >
                     <button
-                        className="button"
+                        className="button button-secondary button-compact"
                         onClick={ this.resetLink }
                         disabled={ ! this.changesMade() }
                     >
                         { __eafl( 'Cancel Changes' ) }
                     </button>
                     <button
-                        className="button button-primary"
+                        className="button button-primary button-compact"
                         onClick={ this.saveLink }
                         disabled={ ! this.changesMade() }
                     >

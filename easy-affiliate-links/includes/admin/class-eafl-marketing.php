@@ -118,7 +118,7 @@ class EAFL_Marketing {
 		$params = '?utm_source=eafl&utm_medium=plugin&utm_campaign=' . urlencode( self::$campaign['id'] );
 
 		// CTA.
-		echo '<a href="' . esc_url( self::$campaign['url'] ) . $params . '" target="_blank" class="button button-primary" style="font-size: 14px;">Learn more about the sale!</a>';
+		echo '<a href="' . esc_url( self::$campaign['url'] ) . $params . '" target="_blank" class="button button-primary button-compact" style="font-size: 14px;">Learn more about the sale!</a>';
 		
 		echo '</div>';
 	}

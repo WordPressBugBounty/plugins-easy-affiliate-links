@@ -27,6 +27,14 @@ class EAFL_Deactivator {
 	 * @since    2.0.0
 	 */
 	public static function deactivate() {
+		$next_event = wp_next_scheduled( 'eafl_daily_cron' );
+		if ( $next_event ) {
+			wp_unschedule_event( $next_event, 'eafl_daily_cron' );
+		}
 
+		$next_event = wp_next_scheduled( 'eafl_hourly_cron' );
+		if ( $next_event ) {
+			wp_unschedule_event( $next_event, 'eafl_hourly_cron' );
+		}
 	}
 }

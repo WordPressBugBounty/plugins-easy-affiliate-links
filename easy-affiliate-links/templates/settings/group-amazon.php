@@ -142,6 +142,18 @@ $amazon_stores_dropdown = array_map( function( $store ) {
 	return $store['label'];
 }, $amazon_stores );
 
+$amazon_product_status_options = array(
+	'AVAILABLE_DATE' => __( 'Available Date', 'easy-affiliate-links' ),
+	'IN_STOCK' => __( 'In Stock', 'easy-affiliate-links' ),
+	'IN_STOCK_SCARCE' => __( 'In Stock (Scarce)', 'easy-affiliate-links' ),
+	'LEADTIME' => __( 'Leadtime', 'easy-affiliate-links' ),
+	'OUT_OF_STOCK' => __( 'Out of Stock', 'easy-affiliate-links' ),
+	'PREORDER' => __( 'Preorder', 'easy-affiliate-links' ),
+	'UNAVAILABLE' => __( 'Unavailable', 'easy-affiliate-links' ),
+	'UNKNOWN' => __( 'Unknown', 'easy-affiliate-links' ),
+	'NOT_FOUND' => __( 'Not Found', 'easy-affiliate-links' ),
+);
+
 $group_amazon = array(
 	'id' => 'amazon',
 	'icon' => 'shopping-cart',
@@ -230,6 +242,72 @@ $group_amazon = array(
 				'id' => 'amazon_api_type',
 				'value' => 'paapi',
 				'type' => 'inverse',
+			),
+		),
+		array(
+			'name' => __( 'Product Status Notifications', 'easy-affiliate-links' ),
+			'description' => __( 'Receive an email when Amazon products are no longer buyable.', 'easy-affiliate-links' ),
+			'settings' => array(
+				array(
+					'id' => 'amazon_status_notifications_enabled',
+					'name' => __( 'Enable Product Status Notifications', 'easy-affiliate-links' ),
+					'type' => 'toggle',
+					'default' => false,
+				),
+				array(
+					'id' => 'amazon_status_notification_emails',
+					'name' => __( 'Send email to', 'easy-affiliate-links' ),
+					'description' => __( 'Email addresses to notify. Separate multiple addresses with commas or new lines.', 'easy-affiliate-links' ),
+					'type' => 'textarea',
+					'rows' => 3,
+					'default' => '',
+					'sanitize' => function( $value ) {
+						if ( is_array( $value ) ) {
+							$value = implode( PHP_EOL, $value );
+						}
+
+						$emails = preg_split( '/[\s,;]+/', (string) $value );
+						$emails = array_filter( array_map( function( $email ) {
+							$email = sanitize_email( trim( $email ) );
+							return is_email( $email ) ? strtolower( $email ) : '';
+						}, $emails ) );
+						$emails = array_values( array_unique( $emails ) );
+
+						return implode( PHP_EOL, $emails );
+					},
+					'dependency' => array(
+						'id' => 'amazon_status_notifications_enabled',
+						'value' => true,
+					),
+				),
+				array(
+					'id' => 'amazon_status_notification_statuses',
+					'name' => __( 'Notification Statuses', 'easy-affiliate-links' ),
+					'description' => __( 'Amazon product statuses that should trigger an email notification.', 'easy-affiliate-links' ),
+					'type' => 'dropdownMultiselect',
+					'options' => $amazon_product_status_options,
+					'default' => array( 'OUT_OF_STOCK', 'UNAVAILABLE', 'NOT_FOUND' ),
+					'dependency' => array(
+						'id' => 'amazon_status_notifications_enabled',
+						'value' => true,
+					),
+				),
+				array(
+					'id' => 'amazon_status_notification_frequency',
+					'name' => __( 'Notification Frequency', 'easy-affiliate-links' ),
+					'description' => __( 'How often to send product status notification emails.', 'easy-affiliate-links' ),
+					'type' => 'dropdown',
+					'options' => array(
+						'batch' => __( 'As soon as noticed', 'easy-affiliate-links' ),
+						'daily' => __( 'Daily digest', 'easy-affiliate-links' ),
+						'weekly' => __( 'Weekly digest', 'easy-affiliate-links' ),
+					),
+					'default' => 'daily',
+					'dependency' => array(
+						'id' => 'amazon_status_notifications_enabled',
+						'value' => true,
+					),
+				),
 			),
 		),
 	),

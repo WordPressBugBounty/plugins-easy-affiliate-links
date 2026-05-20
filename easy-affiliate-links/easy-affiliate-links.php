@@ -15,7 +15,7 @@
  * Plugin Name:       Easy Affiliate Links
  * Plugin URI:        https://bootstrapped.ventures/easy-affiliate-links/
  * Description:       Easily manage and cloak all your affiliate links.
- * Version:           3.8.1
+ * Version:           3.9.0
  * Author:            Bootstrapped Ventures
  * Author URI:        https://bootstrapped.ventures/
  * License:           GPL-2.0+

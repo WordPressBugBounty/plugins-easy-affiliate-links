@@ -323,7 +323,192 @@ registerFormatType(affiliate_link_inline_name, {
     return LinkEdit;
   }(Component)
 });
+;// CONCATENATED MODULE: ./easy-affiliate-links/assets/js/blocks/affiliate-link-button/index.js
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var affiliate_link_button_ = wp.i18n.__;
+var addFilter = wp.hooks.addFilter;
+var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
+var affiliate_link_button_Fragment = wp.element.Fragment;
+var affiliate_link_button_wp$components = wp.components,
+    affiliate_link_button_ToolbarGroup = affiliate_link_button_wp$components.ToolbarGroup,
+    affiliate_link_button_ToolbarButton = affiliate_link_button_wp$components.ToolbarButton;
+var buttonAttributes = {
+  eaflId: {
+    type: 'string',
+    "default": ''
+  },
+  eaflType: {
+    type: 'string',
+    "default": ''
+  },
+  eaflUrl: {
+    type: 'string',
+    "default": ''
+  }
+}; // Backwards compatibility.
+
+var affiliate_link_button_BlockControls;
+
+if (wp.hasOwnProperty('blockEditor')) {
+  affiliate_link_button_BlockControls = wp.blockEditor.BlockControls;
+} else {
+  affiliate_link_button_BlockControls = wp.editor.BlockControls;
+}
+
+var getOptionActual = function getOptionActual(options, value) {
+  var fallback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : value;
+  options = options || [];
+  var option = options.find(function (option) {
+    return option.value === value;
+  });
+  return option ? option.actual : fallback;
+};
+
+var getButtonText = function getButtonText(text) {
+  var element = document.createElement('div');
+  element.innerHTML = text || '';
+  return element.textContent || element.innerText || '';
+};
+
+var getLinkRel = function getLinkRel(link) {
+  var rel = [];
+  var nofollow = getOptionActual(eafl_admin_manage_modal.options.nofollow, link.nofollow, link.nofollow);
+
+  if ('nofollow' === nofollow) {
+    rel.push('nofollow');
+  }
+
+  if (link.sponsored) {
+    rel.push('sponsored');
+  }
+
+  if (link.ugc) {
+    rel.push('ugc');
+  }
+
+  return rel.join(' ');
+};
+
+var getLinkUrl = function getLinkUrl(link) {
+  var cloak = getOptionActual(eafl_admin_manage_modal.options.cloak, link.cloak, link.cloak);
+
+  if ('yes' === cloak && link.shortlink) {
+    return link.shortlink;
+  }
+
+  return link.url || '';
+};
+
+var getButtonAttributesForLink = function getButtonAttributesForLink(link) {
+  var target = getOptionActual(eafl_admin_manage_modal.options.target, link.target, link.target);
+  return {
+    eaflId: '' + link.id,
+    eaflType: link.type,
+    eaflUrl: getLinkUrl(link),
+    url: getLinkUrl(link),
+    linkTarget: target,
+    rel: getLinkRel(link)
+  };
+};
+
+addFilter('blocks.registerBlockType', 'easy-affiliate-links/button-attributes', function (settings, name) {
+  if ('core/button' !== name) {
+    return settings;
+  }
+
+  return _objectSpread(_objectSpread({}, settings), {}, {
+    attributes: _objectSpread(_objectSpread({}, settings.attributes), buttonAttributes)
+  });
+});
+
+if (wp.blocks.getBlockType) {
+  var buttonBlock = wp.blocks.getBlockType('core/button');
+
+  if (buttonBlock) {
+    buttonBlock.attributes = _objectSpread(_objectSpread({}, buttonBlock.attributes), buttonAttributes);
+  }
+}
+
+var withAffiliateLinkButtonControls = createHigherOrderComponent(function (BlockEdit) {
+  return function (props) {
+    if ('core/button' !== props.name) {
+      return /*#__PURE__*/React.createElement(BlockEdit, props);
+    }
+
+    var attributes = props.attributes,
+        isSelected = props.isSelected,
+        setAttributes = props.setAttributes;
+    var hasAffiliateLink = !!attributes.eaflId;
+
+    var setAffiliateLink = function setAffiliateLink(link) {
+      if ('html' === link.type) {
+        alert(affiliate_link_button_('Affiliate HTML Code links cannot be used for Button blocks.'));
+        return;
+      }
+
+      setAttributes(getButtonAttributesForLink(link));
+    };
+
+    var selectAffiliateLink = function selectAffiliateLink() {
+      EAFL_Modal.open('insert', {
+        insertCallback: setAffiliateLink,
+        selectedText: getButtonText(attributes.text),
+        excludeHtmlLinks: true
+      });
+    };
+
+    var editAffiliateLink = function editAffiliateLink() {
+      EAFL_Modal.open('edit', {
+        linkId: attributes.eaflId,
+        saveCallback: setAffiliateLink
+      });
+    };
+
+    var removeAffiliateLink = function removeAffiliateLink() {
+      setAttributes({
+        eaflId: '',
+        eaflType: '',
+        eaflUrl: '',
+        url: '',
+        linkTarget: '',
+        rel: ''
+      });
+    };
+
+    return /*#__PURE__*/React.createElement(affiliate_link_button_Fragment, null, /*#__PURE__*/React.createElement(BlockEdit, props), isSelected && /*#__PURE__*/React.createElement(affiliate_link_button_BlockControls, null, /*#__PURE__*/React.createElement(affiliate_link_button_ToolbarGroup, null, !hasAffiliateLink && /*#__PURE__*/React.createElement(affiliate_link_button_ToolbarButton, {
+      icon: "admin-links",
+      className: "eafl-link-button",
+      label: affiliate_link_button_('Affiliate Link'),
+      onClick: selectAffiliateLink
+    }), hasAffiliateLink && /*#__PURE__*/React.createElement(affiliate_link_button_ToolbarButton, {
+      isPressed: true,
+      icon: "admin-links",
+      className: "eafl-link-button",
+      label: affiliate_link_button_('Edit Affiliate Link'),
+      onClick: editAffiliateLink
+    }), hasAffiliateLink && /*#__PURE__*/React.createElement(affiliate_link_button_ToolbarButton, {
+      icon: "update",
+      className: "eafl-link-button",
+      label: affiliate_link_button_('Change Affiliate Link'),
+      onClick: selectAffiliateLink
+    }), hasAffiliateLink && /*#__PURE__*/React.createElement(affiliate_link_button_ToolbarButton, {
+      isPressed: true,
+      icon: "editor-unlink",
+      className: "eafl-link-button",
+      label: affiliate_link_button_('Unlink Affiliate Link'),
+      onClick: removeAffiliateLink
+    }))));
+  };
+}, 'withAffiliateLinkButtonControls');
+addFilter('editor.BlockEdit', 'easy-affiliate-links/button-controls', withAffiliateLinkButtonControls);
 ;// CONCATENATED MODULE: ./easy-affiliate-links/assets/js/blocks.js
+
 
 
 (EasyAffiliateLinks = typeof EasyAffiliateLinks === "undefined" ? {} : EasyAffiliateLinks).blocks = __webpack_exports__;

@@ -131,6 +131,7 @@ class EAFL_Manage_Modal {
 			'amazon_image_height' => 0,
 			'amazon_link' => '',
 			'amazon_price' => '',
+			'amazon_status' => '',
 			'amazon_updated' => 0,
 		) );
 	}

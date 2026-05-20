@@ -26,7 +26,7 @@
 					<?php if ( isset( $tool['label'] ) ) { echo $tool['label']; } ?>
 				</th>
 				<td>
-                <a href="<?php echo esc_url( isset( $tool['url'] ) ? $tool['url'] : '#' ); ?>" class="button" id="eafl_tools_<?php echo esc_attr( $tool['id'] ); ?>"><?php echo esc_html( $tool['name'] ); ?></a>
+                <a href="<?php echo esc_url( isset( $tool['url'] ) ? $tool['url'] : '#' ); ?>" class="button button-secondary button-compact" id="eafl_tools_<?php echo esc_attr( $tool['id'] ); ?>"><?php echo esc_html( $tool['name'] ); ?></a>
                     <?php if ( isset( $tool['description'] ) ) { echo '<p class="description">' . $tool['description']. '</p>'; } ?>
 				</td>
             </tr>

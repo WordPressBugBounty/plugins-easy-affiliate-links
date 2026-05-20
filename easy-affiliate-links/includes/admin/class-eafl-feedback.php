@@ -42,7 +42,7 @@ class EAFL_Feedback {
 			if ( 42 <= intval( $count ) ) {
 				echo '<div class="eafl-feedback-notice">';
 				echo '<strong>Wow, you\'ve create ' . esc_html( $count ) . ' affiliate links!</strong><br/>Are you enjoying our plugin so far?<br/>';
-				echo '<button id="eafl-feedback-stop" class="button button-small">Stop asking me</button> <button id="eafl-feedback-no" class="button button-primary button-small">No...</button> <button id="eafl-feedback-yes" class="button button-primary button-small">Yes!</button>';
+				echo '<button id="eafl-feedback-stop" class="button button-secondary button-small button-compact">Stop asking me</button> <button id="eafl-feedback-no" class="button button-primary button-small button-compact">No...</button> <button id="eafl-feedback-yes" class="button button-primary button-small button-compact">Yes!</button>';
 				echo '</div>';
 			}
 		}

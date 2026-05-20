@@ -25,7 +25,7 @@ let datatables = {
                 saveCallback: () => datatable.refreshData(),
             } );
         },
-        selectedColumns: ['categories', 'name', 'clicks', 'shortlink', 'url'],
+        selectedColumns: ['categories', 'name', 'clicks', 'shortlink', 'url', 'amazon_status'],
         columns: ColumnsLinks,
     },
     'usage': {

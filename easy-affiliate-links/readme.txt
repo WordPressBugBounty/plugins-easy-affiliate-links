@@ -3,8 +3,8 @@ Contributors: BrechtVds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG7KZMGFU325Y
 Tags: affiliate, links, cloaking, shortlink
 Requires at least: 3.5
-Tested up to: 6.9
-Stable tag: 3.8.1
+Tested up to: 7.0
+Stable tag: 3.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,7 @@ Current features:
 
 Looking for some more advanced functionality? We also have the [Easy Affiliate Links Premium](http://bootstrapped.ventures/easy-affiliate-links/get-the-plugin/) add-on available with the following features:
 
+*   **Amazon Creators API** integration to easily search and link products
 *   Get valuable insights with **click statistics and charts**
 *   Automatic **broken links checker** with email notifications
 *   Show an **automatic tooltip disclaimer** when hovering over links
@@ -69,6 +70,10 @@ We recommend using the free [Google Analytics by Yoast](https://wordpress.org/pl
 5. Powerful overview page to manage, analyze and bulk edit your links
 
 == Changelog ==
+= 3.9.0 =
+* Feature: Set affiliate link for button block
+* Improvement: Backend styling in WordPress 7.0
+
 = 3.8.1 =
 * Improvement: Extended settings page
 
@@ -303,6 +308,9 @@ We recommend using the free [Google Analytics by Yoast](https://wordpress.org/pl
 * Very first version of this plugin
 
 == Upgrade notice ==
+= 3.9.0 =
+Some new features and improvements
+
 = 3.8.1 =
 Some smaller improvements and fixes
 

@@ -87,6 +87,15 @@
     }
 }
 
+// Override secondary button styles. Their transparent background doesn't work well with the dark footer.
+.eafl-admin-modal-footer {
+    button.button-secondary {
+        background-color: white !important;
+        color: #444;
+        border-color: white;
+    }
+}
+
 @media screen and (min-width: 782px) {
     .eafl-admin-modal {
         .eafl-admin-modal-footer {

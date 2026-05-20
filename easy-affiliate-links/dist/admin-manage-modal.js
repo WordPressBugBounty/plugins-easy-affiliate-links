@@ -25496,6 +25496,7 @@ var DataTable = /*#__PURE__*/function (_Component) {
     _this.initDataTable = _this.initDataTable.bind(DataTable_assertThisInitialized(_this));
     _this.refreshData = _this.refreshData.bind(DataTable_assertThisInitialized(_this));
     _this.fetchData = _this.fetchData.bind(DataTable_assertThisInitialized(_this));
+    _this.getInitialFiltered = _this.getInitialFiltered.bind(DataTable_assertThisInitialized(_this));
     _this.toggleSelectRow = _this.toggleSelectRow.bind(DataTable_assertThisInitialized(_this));
     _this.toggleSelectAll = _this.toggleSelectAll.bind(DataTable_assertThisInitialized(_this));
     _this.getSelectedRows = _this.getSelectedRows.bind(DataTable_assertThisInitialized(_this));
@@ -25544,6 +25545,7 @@ var DataTable = /*#__PURE__*/function (_Component) {
       }
 
       this.setState(DataTable_objectSpread(DataTable_objectSpread({}, initState), {}, {
+        filtered: this.getInitialFiltered(),
         columns: this.props.options.columns.getColumns(this),
         selectedColumns: selectedColumns
       }), function () {
@@ -25551,6 +25553,37 @@ var DataTable = /*#__PURE__*/function (_Component) {
           _this2.refreshData();
         }
       });
+    }
+  }, {
+    key: "getInitialFiltered",
+    value: function getInitialFiltered() {
+      var hash = window.location.hash || '';
+      var queryStart = hash.indexOf('?');
+
+      if (-1 === queryStart) {
+        return [];
+      }
+
+      var query = hash.substring(queryStart + 1);
+
+      if (!query) {
+        return [];
+      }
+
+      return query.split('&').reduce(function (filters, part) {
+        var pieces = part.split('=');
+        var id = decodeURIComponent(pieces[0] || '');
+        var value = decodeURIComponent(pieces[1] || '');
+
+        if (id && value) {
+          filters.push({
+            id: id,
+            value: value
+          });
+        }
+
+        return filters;
+      }, []);
     }
   }, {
     key: "toggleSelectRow",
@@ -25744,7 +25777,7 @@ var DataTable = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react.createElement("div", {
         className: "eafl-admin-manage-header-buttons"
       }, (false === this.state.selectedColumns || this.state.selectedColumns.includes('bulk_edit')) && this.props.options.bulkEdit && /*#__PURE__*/react.createElement("button", {
-        className: "button",
+        className: "button button-secondary button-compact",
         onClick: function onClick() {
           EAFL_Modal.open('bulk-edit', {
             route: _this5.props.options.bulkEdit.route,
@@ -25757,7 +25790,7 @@ var DataTable = /*#__PURE__*/function (_Component) {
         },
         disabled: 0 === this.getSelectedRows().length
       }, __eafl('Bulk Edit'), " ", this.getSelectedRows().length, " ", 1 === this.getSelectedRows().length ? this.props.options.label.singular : this.props.options.label.plural, "..."), this.props.options.createButton ? /*#__PURE__*/react.createElement("button", {
-        className: "button button-primary",
+        className: "button button-primary button-compact",
         onClick: function onClick() {
           return _this5.props.options.createButton(_this5);
         }
@@ -26428,6 +26461,84 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
 }, {
   'unknown': __eafl('Status Unknown')
 });
+var amazonStatusTypes = {
+  'AVAILABLE_DATE': {
+    label: __eafl('Available Date'),
+    className: 'status-preorder'
+  },
+  'IN_STOCK': {
+    label: __eafl('In Stock'),
+    className: 'status-in-stock'
+  },
+  'IN_STOCK_SCARCE': {
+    label: __eafl('In Stock (Scarce)'),
+    className: 'status-in-stock'
+  },
+  'LEADTIME': {
+    label: __eafl('Leadtime'),
+    className: 'status-preorder'
+  },
+  'OUT_OF_STOCK': {
+    label: __eafl('Out of Stock'),
+    className: 'status-out-of-stock'
+  },
+  'PREORDER': {
+    label: __eafl('Preorder'),
+    className: 'status-preorder'
+  },
+  'UNAVAILABLE': {
+    label: __eafl('Unavailable'),
+    className: 'status-unavailable'
+  },
+  'UNKNOWN': {
+    label: __eafl('Unknown'),
+    className: 'status-unknown'
+  },
+  'NOT_FOUND': {
+    label: __eafl('Not Found'),
+    className: 'status-not-found'
+  }
+};
+
+var getAmazonStatusProducts = function getAmazonStatusProducts(link) {
+  if (!link || 'amazon' !== link.type) {
+    return [];
+  }
+
+  var products = [];
+
+  if (link.amazon_asin) {
+    products.push({
+      label: __eafl('Default Product'),
+      asin: link.amazon_asin,
+      name: link.amazon_name || '',
+      status: link.amazon_status || '',
+      url: link.amazon_link || link.url || ''
+    });
+  }
+
+  if (Array.isArray(link.conditional)) {
+    link.conditional.forEach(function (condition) {
+      if (!condition.amazon_asin) {
+        return;
+      }
+
+      var labelParts = [condition.type, condition.value].filter(function (part) {
+        return part;
+      });
+      products.push({
+        label: labelParts.length ? "".concat(__eafl('Condition'), ": ").concat(labelParts.join(' - ')) : __eafl('Condition'),
+        asin: condition.amazon_asin,
+        name: condition.amazon_name || '',
+        status: condition.amazon_status || '',
+        url: condition.amazon_link || condition.url || ''
+      });
+    });
+  }
+
+  return products;
+};
+
 /* harmony default export */ const links_Columns = ({
   getColumns: function getColumns(links) {
     var categories = eafl_admin_manage_modal.categories.map(function (cat) {
@@ -27070,6 +27181,105 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
         }, "ASIN: ", row.original.amazon_asin)));
       }
     }, {
+      Header: __eafl('Amazon Product Status'),
+      id: 'amazon_status',
+      accessor: function accessor(row) {
+        var products = getAmazonStatusProducts(row);
+        return products.length ? products.map(function (product) {
+          return product.status || 'UNKNOWN';
+        }).join('|') : 'empty';
+      },
+      width: 260,
+      sortable: false,
+      Filter: function Filter(_ref11) {
+        var filter = _ref11.filter,
+            _onChange11 = _ref11.onChange;
+        return /*#__PURE__*/react.createElement("select", {
+          onChange: function onChange(event) {
+            return _onChange11(event.target.value);
+          },
+          style: {
+            width: '100%',
+            fontSize: '1em'
+          },
+          value: filter ? filter.value : 'all'
+        }, /*#__PURE__*/react.createElement("option", {
+          value: "all"
+        }, __eafl('Show All')), /*#__PURE__*/react.createElement("option", {
+          value: "IN_STOCK"
+        }, __eafl('In Stock')), /*#__PURE__*/react.createElement("option", {
+          value: "IN_STOCK_SCARCE"
+        }, __eafl('In Stock (Scarce)')), /*#__PURE__*/react.createElement("option", {
+          value: "OUT_OF_STOCK"
+        }, __eafl('Out of Stock')), /*#__PURE__*/react.createElement("option", {
+          value: "UNAVAILABLE"
+        }, __eafl('Unavailable')), /*#__PURE__*/react.createElement("option", {
+          value: "PREORDER"
+        }, __eafl('Preorder')), /*#__PURE__*/react.createElement("option", {
+          value: "AVAILABLE_DATE"
+        }, __eafl('Available Date')), /*#__PURE__*/react.createElement("option", {
+          value: "LEADTIME"
+        }, __eafl('Leadtime')), /*#__PURE__*/react.createElement("option", {
+          value: "UNKNOWN"
+        }, __eafl('Unknown')), /*#__PURE__*/react.createElement("option", {
+          value: "NOT_FOUND"
+        }, __eafl('Not Found')), /*#__PURE__*/react.createElement("option", {
+          value: "empty"
+        }, __eafl('No Amazon Product')), /*#__PURE__*/react.createElement("option", {
+          value: ""
+        }, "----------------"), /*#__PURE__*/react.createElement("option", {
+          value: "notification_statuses"
+        }, __eafl('Notification statuses')), /*#__PURE__*/react.createElement("option", {
+          value: "not_in_stock"
+        }, __eafl('Any status except "In Stock"')));
+      },
+      Cell: function Cell(row) {
+        var products = getAmazonStatusProducts(row.original);
+
+        if (!products.length) {
+          return null;
+        }
+
+        return /*#__PURE__*/react.createElement("div", {
+          className: "eafl-admin-table-amazon-status-list"
+        }, products.map(function (product, index) {
+          if (!product.status) {
+            return /*#__PURE__*/react.createElement("div", {
+              className: "eafl-admin-table-amazon-status-row",
+              key: index
+            }, /*#__PURE__*/react.createElement("span", {
+              className: "eafl-admin-table-amazon-status-label"
+            }, product.label), /*#__PURE__*/react.createElement("span", {
+              className: "eafl-admin-table-amazon-status-none"
+            }, "?"));
+          }
+
+          var statusInfo = amazonStatusTypes[product.status] || {
+            label: product.status,
+            className: 'status-unknown'
+          };
+          return /*#__PURE__*/react.createElement("div", {
+            className: "eafl-admin-table-amazon-status-row ".concat(statusInfo.className),
+            key: index
+          }, /*#__PURE__*/react.createElement("span", {
+            className: "eafl-admin-table-amazon-status-label"
+          }, product.label), /*#__PURE__*/react.createElement("span", {
+            className: "eafl-admin-table-amazon-status-type"
+          }, statusInfo.label), product.url && /*#__PURE__*/react.createElement("a", {
+            href: product.url,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: "eafl-admin-table-amazon-status-link",
+            onClick: function onClick(e) {
+              return e.stopPropagation();
+            }
+          }, /*#__PURE__*/react.createElement(shared_Icon, {
+            type: "link",
+            title: __eafl('View product on Amazon')
+          })));
+        }));
+      }
+    }, {
       Header: __eafl('Conditional'),
       id: 'conditional',
       accessor: 'conditional',
@@ -27103,12 +27313,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       id: 'status',
       accessor: 'status',
       width: 200,
-      Filter: function Filter(_ref11) {
-        var filter = _ref11.filter,
-            _onChange11 = _ref11.onChange;
+      Filter: function Filter(_ref12) {
+        var filter = _ref12.filter,
+            _onChange12 = _ref12.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange11(event.target.value);
+            return _onChange12(event.target.value);
           },
           style: {
             width: '100%',
@@ -27184,12 +27394,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
       accessor: 'status_ignore',
       width: 200,
       sortable: false,
-      Filter: function Filter(_ref12) {
-        var filter = _ref12.filter,
-            _onChange12 = _ref12.onChange;
+      Filter: function Filter(_ref13) {
+        var filter = _ref13.filter,
+            _onChange13 = _ref13.onChange;
         return /*#__PURE__*/react.createElement("select", {
           onChange: function onChange(event) {
-            return _onChange12(event.target.value);
+            return _onChange13(event.target.value);
           },
           style: {
             width: '100%',
@@ -27258,12 +27468,12 @@ var statusTypesFlat = statusTypes.reduce(function (allTypes, currGroup) {
         id: 'wpupg_custom_image_id',
         accessor: 'wpupg_custom_image_id',
         width: 110,
-        Filter: function Filter(_ref13) {
-          var filter = _ref13.filter,
-              _onChange13 = _ref13.onChange;
+        Filter: function Filter(_ref14) {
+          var filter = _ref14.filter,
+              _onChange14 = _ref14.onChange;
           return /*#__PURE__*/react.createElement("select", {
             onChange: function onChange(event) {
-              return _onChange13(event.target.value);
+              return _onChange14(event.target.value);
             },
             style: {
               width: '100%',
@@ -27452,7 +27662,7 @@ var datatables = {
         }
       });
     },
-    selectedColumns: ['categories', 'name', 'clicks', 'shortlink', 'url'],
+    selectedColumns: ['categories', 'name', 'clicks', 'shortlink', 'url', 'amazon_status'],
     columns: links_Columns
   },
   'usage': {
@@ -27610,7 +27820,7 @@ var react_modal_lib_default = /*#__PURE__*/__webpack_require__.n(react_modal_lib
 var Button = function Button(props) {
   var buttonDisabled = false;
   var tooltipContent = props.help ? props.help : false;
-  var className = 'button'; // Check if there are requirements.
+  var className = 'button button-compact'; // Check if there are requirements.
 
   if (props.required) {
     if (!eafl_admin.addons.hasOwnProperty(props.required) || true !== eafl_admin.addons[props.required]) {
@@ -35199,7 +35409,9 @@ var ExpandableDescription = /*#__PURE__*/function (_Component) {
         return /*#__PURE__*/react.createElement("div", {
           className: "eafl-admin-table-insert-container"
         }, /*#__PURE__*/react.createElement("button", {
-          className: "button button-primary eafl-admin-table-insert-button",
+          className: "button button-primary button-compact eafl-admin-table-insert-button",
+          disabled: links.state.excludeHtmlLinks && 'html' === row.original.type,
+          title: links.state.excludeHtmlLinks && 'html' === row.original.type ? __eafl('Affiliate HTML Code links cannot be used here.') : __eafl('Insert Link'),
           onClick: function onClick() {
             if ('html' === row.original.type) {
               links.insertLink(row.original, "".concat(__eafl('Affiliate HTML Code'), " \"").concat(row.original.name ? row.original.name : row.original.id, "\""));
@@ -35337,7 +35549,8 @@ var Insert = /*#__PURE__*/function (_Component) {
       isFirstLoad: true,
       columns: insert_Columns.getColumns(insert_assertThisInitialized(_this)),
       insertCallback: props.args.hasOwnProperty('insertCallback') ? props.args.insertCallback : false,
-      selectedText: selectedText
+      selectedText: selectedText,
+      excludeHtmlLinks: props.args.hasOwnProperty('excludeHtmlLinks') ? props.args.excludeHtmlLinks : false
     }; // Bind functions.
 
     _this.refreshData = _this.refreshData.bind(insert_assertThisInitialized(_this));
@@ -35402,6 +35615,11 @@ var Insert = /*#__PURE__*/function (_Component) {
   }, {
     key: "insertLink",
     value: function insertLink(link, text) {
+      if (this.state.excludeHtmlLinks && 'html' === link.type) {
+        alert(__eafl('Affiliate HTML Code links cannot be used here.'));
+        return;
+      }
+
       if ('function' === typeof this.state.insertCallback) {
         this.state.insertCallback(link, text);
       }
@@ -35421,7 +35639,7 @@ var Insert = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(general_Header, {
         onCloseModal: this.props.maybeCloseModal
       }, /*#__PURE__*/react.createElement("button", {
-        className: "button button-primary",
+        className: "button button-primary button-compact",
         onClick: function onClick() {
           _this3.props.maybeCloseModal(function () {
             var defaults = _this3.state.selectedText ? {
@@ -36437,11 +36655,11 @@ var link_Link = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react.createElement(general_Footer, {
         savingChanges: this.state.savingChanges
       }, /*#__PURE__*/react.createElement("button", {
-        className: "button",
+        className: "button button-secondary button-compact",
         onClick: this.resetLink,
         disabled: !this.changesMade()
       }, __eafl('Cancel Changes')), /*#__PURE__*/react.createElement("button", {
-        className: "button button-primary",
+        className: "button button-primary button-compact",
         onClick: this.saveLink,
         disabled: !this.changesMade()
       }, 'edit' === this.props.mode ? __eafl('Save Changes') : __eafl('Create Link'))));
@@ -36532,7 +36750,7 @@ var Text = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(general_Header, {
         onCloseModal: this.props.maybeCloseModal
       }, /*#__PURE__*/react.createElement("button", {
-        className: "button button-primary",
+        className: "button button-primary button-compact",
         onClick: function onClick() {
           _this3.props.maybeCloseModal(function () {
             EAFL_Modal.open('edit', {
@@ -36565,7 +36783,7 @@ var Text = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react.createElement(general_Footer, {
         savingChanges: false
       }, /*#__PURE__*/react.createElement("button", {
-        className: "button button-primary",
+        className: "button button-primary button-compact",
         onClick: this.onChangeText,
         disabled: this.state.text === this.state.originalText
       }, __eafl('Change Text'))));

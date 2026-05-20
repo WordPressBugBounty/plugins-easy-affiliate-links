@@ -54,6 +54,56 @@ const statusTypesFlat = statusTypes.reduce((allTypes, currGroup) => {
     'unknown': __eafl( 'Status Unknown' )
 } );
 
+const amazonStatusTypes = {
+    'AVAILABLE_DATE': { label: __eafl( 'Available Date' ), className: 'status-preorder' },
+    'IN_STOCK': { label: __eafl( 'In Stock' ), className: 'status-in-stock' },
+    'IN_STOCK_SCARCE': { label: __eafl( 'In Stock (Scarce)' ), className: 'status-in-stock' },
+    'LEADTIME': { label: __eafl( 'Leadtime' ), className: 'status-preorder' },
+    'OUT_OF_STOCK': { label: __eafl( 'Out of Stock' ), className: 'status-out-of-stock' },
+    'PREORDER': { label: __eafl( 'Preorder' ), className: 'status-preorder' },
+    'UNAVAILABLE': { label: __eafl( 'Unavailable' ), className: 'status-unavailable' },
+    'UNKNOWN': { label: __eafl( 'Unknown' ), className: 'status-unknown' },
+    'NOT_FOUND': { label: __eafl( 'Not Found' ), className: 'status-not-found' },
+};
+
+const getAmazonStatusProducts = (link) => {
+    if ( ! link || 'amazon' !== link.type ) {
+        return [];
+    }
+
+    let products = [];
+
+    if ( link.amazon_asin ) {
+        products.push({
+            label: __eafl( 'Default Product' ),
+            asin: link.amazon_asin,
+            name: link.amazon_name || '',
+            status: link.amazon_status || '',
+            url: link.amazon_link || link.url || '',
+        });
+    }
+
+    if ( Array.isArray( link.conditional ) ) {
+        link.conditional.forEach((condition) => {
+            if ( ! condition.amazon_asin ) {
+                return;
+            }
+
+            const labelParts = [ condition.type, condition.value ].filter( part => part );
+
+            products.push({
+                label: labelParts.length ? `${ __eafl( 'Condition' ) }: ${ labelParts.join( ' - ' ) }` : __eafl( 'Condition' ),
+                asin: condition.amazon_asin,
+                name: condition.amazon_name || '',
+                status: condition.amazon_status || '',
+                url: condition.amazon_link || condition.url || '',
+            });
+        });
+    }
+
+    return products;
+};
+
 export default {
     getColumns( links ) {
         let categories = eafl_admin_manage_modal.categories.map(cat => { return {id: cat.term_id, label: `${cat.name} (${cat.count})` } } );
@@ -602,6 +652,83 @@ export default {
                             </div>
                         </div>
                     )
+                },
+            },{
+                Header: __eafl( 'Amazon Product Status' ),
+                id: 'amazon_status',
+                accessor: row => {
+                    const products = getAmazonStatusProducts( row );
+                    return products.length ? products.map( product => product.status || 'UNKNOWN' ).join( '|' ) : 'empty';
+                },
+                width: 260,
+                sortable: false,
+                Filter: ({ filter, onChange }) => (
+                    <select
+                        onChange={event => onChange(event.target.value)}
+                        style={{ width: '100%', fontSize: '1em' }}
+                        value={filter ? filter.value : 'all'}
+                    >
+                        <option value="all">{ __eafl( 'Show All' ) }</option>
+                        <option value="IN_STOCK">{ __eafl( 'In Stock' ) }</option>
+                        <option value="IN_STOCK_SCARCE">{ __eafl( 'In Stock (Scarce)' ) }</option>
+                        <option value="OUT_OF_STOCK">{ __eafl( 'Out of Stock' ) }</option>
+                        <option value="UNAVAILABLE">{ __eafl( 'Unavailable' ) }</option>
+                        <option value="PREORDER">{ __eafl( 'Preorder' ) }</option>
+                        <option value="AVAILABLE_DATE">{ __eafl( 'Available Date' ) }</option>
+                        <option value="LEADTIME">{ __eafl( 'Leadtime' ) }</option>
+                        <option value="UNKNOWN">{ __eafl( 'Unknown' ) }</option>
+                        <option value="NOT_FOUND">{ __eafl( 'Not Found' ) }</option>
+                        <option value="empty">{ __eafl( 'No Amazon Product' ) }</option>
+                        <option value="">----------------</option>
+                        <option value="notification_statuses">{ __eafl( 'Notification statuses' ) }</option>
+                        <option value="not_in_stock">{ __eafl( 'Any status except "In Stock"' ) }</option>
+                    </select>
+                ),
+                Cell: row => {
+                    const products = getAmazonStatusProducts( row.original );
+
+                    if ( ! products.length ) {
+                        return null;
+                    }
+
+                    return (
+                        <div className="eafl-admin-table-amazon-status-list">
+                            {
+                                products.map((product, index) => {
+                                    if ( ! product.status ) {
+                                        return (
+                                            <div className="eafl-admin-table-amazon-status-row" key={index}>
+                                                <span className="eafl-admin-table-amazon-status-label">{ product.label }</span>
+                                                <span className="eafl-admin-table-amazon-status-none">?</span>
+                                            </div>
+                                        );
+                                    }
+
+                                    const statusInfo = amazonStatusTypes[ product.status ] || { label: product.status, className: 'status-unknown' };
+
+                                    return (
+                                        <div className={ `eafl-admin-table-amazon-status-row ${ statusInfo.className }` } key={index}>
+                                            <span className="eafl-admin-table-amazon-status-label">{ product.label }</span>
+                                            <span className="eafl-admin-table-amazon-status-type">{ statusInfo.label }</span>
+                                            {
+                                                product.url
+                                                &&
+                                                <a
+                                                    href={ product.url }
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="eafl-admin-table-amazon-status-link"
+                                                    onClick={(e) => e.stopPropagation()}
+                                                >
+                                                    <Icon type="link" title={ __eafl( 'View product on Amazon' ) }/>
+                                                </a>
+                                            }
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
+                    );
                 },
             },{
                 Header: __eafl( 'Conditional' ),

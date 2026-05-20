@@ -34,6 +34,7 @@ export default class DataTable extends Component {
         this.initDataTable = this.initDataTable.bind(this);
         this.refreshData = this.refreshData.bind(this);
         this.fetchData = this.fetchData.bind(this);
+        this.getInitialFiltered = this.getInitialFiltered.bind(this);
         this.toggleSelectRow = this.toggleSelectRow.bind(this);
         this.toggleSelectAll = this.toggleSelectAll.bind(this);
         this.getSelectedRows = this.getSelectedRows.bind(this);
@@ -74,6 +75,7 @@ export default class DataTable extends Component {
 
         this.setState({
             ...initState,
+            filtered: this.getInitialFiltered(),
             columns: this.props.options.columns.getColumns( this ),
             selectedColumns: selectedColumns,
         }, () => {
@@ -81,6 +83,32 @@ export default class DataTable extends Component {
                 this.refreshData();
             }
         });
+    }
+
+    getInitialFiltered() {
+        const hash = window.location.hash || '';
+        const queryStart = hash.indexOf( '?' );
+
+        if ( -1 === queryStart ) {
+            return [];
+        }
+
+        const query = hash.substring( queryStart + 1 );
+        if ( ! query ) {
+            return [];
+        }
+
+        return query.split( '&' ).reduce((filters, part) => {
+            const pieces = part.split( '=' );
+            const id = decodeURIComponent( pieces[0] || '' );
+            const value = decodeURIComponent( pieces[1] || '' );
+
+            if ( id && value ) {
+                filters.push({ id, value });
+            }
+
+            return filters;
+        }, []);
     }
 
     toggleSelectRow(id) {
@@ -249,7 +277,7 @@ export default class DataTable extends Component {
                                 ( false === this.state.selectedColumns || this.state.selectedColumns.includes( 'bulk_edit' ) )
                                 && this.props.options.bulkEdit
                                 && <button
-                                    className="button"
+                                    className="button button-secondary button-compact"
                                     onClick={ () => {
                                         EAFL_Modal.open( 'bulk-edit', {
                                             route: this.props.options.bulkEdit.route,
@@ -265,7 +293,7 @@ export default class DataTable extends Component {
                                 this.props.options.createButton
                                 ?
                                 <button
-                                    className="button button-primary"
+                                    className="button button-primary button-compact"
                                     onClick={ () => this.props.options.createButton( this ) }
                                 >{ `${__eafl( 'Create' )} ${ this.props.options.label.singular }` }</button>
                                 :

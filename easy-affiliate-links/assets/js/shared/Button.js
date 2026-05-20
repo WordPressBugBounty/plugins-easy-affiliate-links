@@ -7,7 +7,7 @@ import '../../css/admin/shared/button.scss';
 const Button = (props) => {
     let buttonDisabled = false;
     let tooltipContent = props.help ? props.help : false;
-    let className = 'button';
+    let className = 'button button-compact';
 
     // Check if there are requirements.
     if ( props.required ) {

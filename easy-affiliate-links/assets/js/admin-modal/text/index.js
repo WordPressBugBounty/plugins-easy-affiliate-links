@@ -46,7 +46,7 @@ export default class Text extends Component {
                     onCloseModal={ this.props.maybeCloseModal }
                 >
                     <button
-                        className="button button-primary"
+                        className="button button-primary button-compact"
                         onClick={() => {
                             this.props.maybeCloseModal(() => {
                                 EAFL_Modal.open('edit', {
@@ -82,7 +82,7 @@ export default class Text extends Component {
                     savingChanges={ false }
                 >
                     <button
-                        className="button button-primary"
+                        className="button button-primary button-compact"
                         onClick={ this.onChangeText }
                         disabled={ this.state.text === this.state.originalText }
                     >
