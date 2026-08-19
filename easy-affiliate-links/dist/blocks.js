@@ -34,10 +34,15 @@ var InspectorControls;
 var BlockControls;
 var AlignmentToolbar;
 
+var useBlockProps = function useBlockProps() {
+  return {};
+};
+
 if (wp.hasOwnProperty('blockEditor')) {
   InspectorControls = wp.blockEditor.InspectorControls;
   BlockControls = wp.blockEditor.BlockControls;
   AlignmentToolbar = wp.blockEditor.AlignmentToolbar;
+  useBlockProps = wp.blockEditor.useBlockProps || useBlockProps;
 } else {
   InspectorControls = wp.editor.InspectorControls;
   BlockControls = wp.editor.BlockControls;
@@ -90,6 +95,7 @@ registerBlockType('easy-affiliate-links/easy-affiliate-link', {
   edit: function edit(props) {
     var attributes = props.attributes,
         setAttributes = props.setAttributes;
+    var blockProps = useBlockProps();
 
     var selectAffiliateLink = function selectAffiliateLink() {
       EAFL_Modal.open('insert', {
@@ -154,10 +160,10 @@ registerBlockType('easy-affiliate-links/easy-affiliate-link', {
       icon: "update",
       label: __('Change Affiliate Link'),
       onClick: selectAffiliateLink
-    }))), /*#__PURE__*/React.createElement(Disabled, null, /*#__PURE__*/React.createElement(ServerSideRender, {
+    }))), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(Disabled, null, /*#__PURE__*/React.createElement(ServerSideRender, {
       block: "easy-affiliate-links/easy-affiliate-link",
       attributes: attributes
-    })));
+    }))));
   },
   save: function save(props) {
     return null;

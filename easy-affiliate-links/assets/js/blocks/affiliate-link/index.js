@@ -11,10 +11,12 @@ const { Fragment } = wp.element;
 let InspectorControls;
 let BlockControls;
 let AlignmentToolbar;
+let useBlockProps = () => ( {} );
 if ( wp.hasOwnProperty( 'blockEditor' ) ) {
 	InspectorControls = wp.blockEditor.InspectorControls;
     BlockControls = wp.blockEditor.BlockControls;
     AlignmentToolbar = wp.blockEditor.AlignmentToolbar;
+    useBlockProps = wp.blockEditor.useBlockProps || useBlockProps;
 } else {
 	InspectorControls = wp.editor.InspectorControls;
     BlockControls = wp.editor.BlockControls;
@@ -64,6 +66,7 @@ registerBlockType( 'easy-affiliate-links/easy-affiliate-link', {
     },
     edit: (props) => {
         const { attributes, setAttributes } = props;
+        const blockProps = useBlockProps();
 
         const selectAffiliateLink = () => {
             EAFL_Modal.open('insert', {
@@ -141,12 +144,14 @@ registerBlockType( 'easy-affiliate-links/easy-affiliate-link', {
 						/>
 					</ToolbarGroup>
                 </BlockControls>
-                <Disabled>
-                    <ServerSideRender
-                        block="easy-affiliate-links/easy-affiliate-link"
-                        attributes={ attributes }
-                    />
-                </Disabled>
+                <div { ...blockProps }>
+                    <Disabled>
+                        <ServerSideRender
+                            block="easy-affiliate-links/easy-affiliate-link"
+                            attributes={ attributes }
+                        />
+                    </Disabled>
+                </div>
             </Fragment>
         )
     },

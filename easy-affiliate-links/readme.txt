@@ -3,8 +3,8 @@ Contributors: BrechtVds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG7KZMGFU325Y
 Tags: affiliate, links, cloaking, shortlink
 Requires at least: 3.5
-Tested up to: 7.0
-Stable tag: 3.9.0
+Tested up to: 7.1
+Stable tag: 3.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,9 @@ We recommend using the free [Google Analytics by Yoast](https://wordpress.org/pl
 5. Powerful overview page to manage, analyze and bulk edit your links
 
 == Changelog ==
+= 3.9.1 =
+* Fix: WordPress 7.1 compatibility
+
 = 3.9.0 =
 * Feature: Set affiliate link for button block
 * Improvement: Backend styling in WordPress 7.0
@@ -308,6 +311,9 @@ We recommend using the free [Google Analytics by Yoast](https://wordpress.org/pl
 * Very first version of this plugin
 
 == Upgrade notice ==
+= 3.9.1 =
+Update to ensure WordPress 7.1 compatibility
+
 = 3.9.0 =
 Some new features and improvements
 
